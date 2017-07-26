@@ -46,7 +46,7 @@
     
     [httpUtil networkStatusWithBlock:nil];
     
-    [httpUtil setSecurityPolicyWithCerPath:[[NSBundle mainBundle] pathForResource:@"*.zhuishushenqi.com" ofType:@"cer"] validatesDomainName:YES];
+//    [httpUtil setSecurityPolicyWithCerPath:[[NSBundle mainBundle] pathForResource:@"*.zhuishushenqi.com" ofType:@"cer"] validatesDomainName:YES];
     
     // 启动画面更久
     //    sleep(2);

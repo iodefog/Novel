@@ -12,7 +12,6 @@
 		697A6FD31F1A226E00DE75A7 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A6F0F1F1A226E00DE75A7 /* BaseCell.m */; };
 		697A6FD41F1A226E00DE75A7 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A6F111F1A226E00DE75A7 /* BaseScrollView.m */; };
 		697A6FD51F1A226E00DE75A7 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A6F131F1A226E00DE75A7 /* BaseTableView.m */; };
-		697A6FED1F1A226E00DE75A7 /* *.zhuishushenqi.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = 697A6F4E1F1A226E00DE75A7 /* *.zhuishushenqi.com.cer */; };
 		697A6FEE1F1A226E00DE75A7 /* refresh_loading@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 697A6F4F1F1A226E00DE75A7 /* refresh_loading@2x.gif */; };
 		697A6FEF1F1A226E00DE75A7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A6F521F1A226E00DE75A7 /* MainViewController.m */; };
 		697A6FF01F1A226E00DE75A7 /* BookshelfVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A6F551F1A226E00DE75A7 /* BookshelfVC.m */; };
@@ -150,7 +149,6 @@
 		697A6F121F1A226E00DE75A7 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
 		697A6F131F1A226E00DE75A7 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		697A6F4C1F1A226E00DE75A7 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
-		697A6F4E1F1A226E00DE75A7 /* *.zhuishushenqi.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "*.zhuishushenqi.com.cer"; sourceTree = "<group>"; };
 		697A6F4F1F1A226E00DE75A7 /* refresh_loading@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "refresh_loading@2x.gif"; sourceTree = "<group>"; };
 		697A6F511F1A226E00DE75A7 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		697A6F521F1A226E00DE75A7 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -328,6 +326,7 @@
 		697A70AA1F1A313F00DE75A7 /* BaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationViewController.m; sourceTree = "<group>"; };
 		697A70AC1F1A349600DE75A7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		697A70AD1F1A349600DE75A7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		697C30781F1CDCFC00F82B2B /* *.zhuishushenqi.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "*.zhuishushenqi.com.cer"; sourceTree = "<group>"; };
 		697DE1D81ED690DC00FF931E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93495C68F67526F94500555E /* Pods-Novel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Novel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Novel/Pods-Novel.debug.xcconfig"; sourceTree = "<group>"; };
 		F3EE61FD1E409971008EB0BF /* Novel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Novel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -504,7 +503,7 @@
 		697A6F4D1F1A226E00DE75A7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				697A6F4E1F1A226E00DE75A7 /* *.zhuishushenqi.com.cer */,
+				697C30781F1CDCFC00F82B2B /* *.zhuishushenqi.com.cer */,
 				697A6F4F1F1A226E00DE75A7 /* refresh_loading@2x.gif */,
 			);
 			path = Resources;
@@ -1190,7 +1189,6 @@
 			files = (
 				697DE1D91ED690DC00FF931E /* LaunchScreen.storyboard in Resources */,
 				697A70531F1A295F00DE75A7 /* README.txt in Resources */,
-				697A6FED1F1A226E00DE75A7 /* *.zhuishushenqi.com.cer in Resources */,
 				697A70501F1A295F00DE75A7 /* AlipaySDK.bundle in Resources */,
 				697A701A1F1A226E00DE75A7 /* backItemImage_hl@2x.png in Resources */,
 				697A6FEE1F1A226E00DE75A7 /* refresh_loading@2x.gif in Resources */,

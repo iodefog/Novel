@@ -80,11 +80,11 @@
 
 #pragma mark -- 服务器地址-----------------
 
-#define SERVERCE_HOST @"https://api.zhuishushenqi.com"  //主要host
+#define SERVERCE_HOST @"http://api.zhuishushenqi.com"  //主要host
 
-#define chapter_URL @"https://chapter2.zhuishushenqi.com" //章节内容
+#define chapter_URL @"http://chapter2.zhuishushenqi.com" //章节内容
 
-#define statics_URL @"https://statics.zhuishushenqi.com"  //静态资源
+#define statics_URL @"http://statics.zhuishushenqi.com"  //静态资源
 
 #define FONT_SIZE(size) [UIFont systemFontOfSize:size] //根据尺寸返回一个字体
 
