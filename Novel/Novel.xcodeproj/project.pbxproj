@@ -1145,7 +1145,7 @@
 				TargetAttributes = {
 					F3EE61FC1E409971008EB0BF = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 422VT5S444;
+						DevelopmentTeam = K48346UACH;
 						ProvisioningStyle = Automatic;
 					};
 					F3EE62151E409971008EB0BF = {
@@ -1500,7 +1500,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K48346UACH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Novel/Classes/Vender/SDKFiles/Alipay",
@@ -1515,7 +1515,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Novel/Classes/Vender/SDKFiles/WechatPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.geli.m;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Novel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1532,7 +1532,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K48346UACH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Novel/Classes/Vender/SDKFiles/Alipay",
@@ -1547,7 +1547,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Novel/Classes/Vender/SDKFiles/WechatPay",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.geli.m;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Novel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

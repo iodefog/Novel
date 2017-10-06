@@ -150,6 +150,10 @@
 
 #define kReadingFrame CGRectMake(kReadSpaceX, kReadSpaceY, kScreenWidth - kReadSpaceX*2, kScreenHeight - kReadSpaceY*2)
 
+
+/** 操作系统版本号 */
+#define xx_iOSVersion ([[[UIDevice currentDevice] systemVersion] floatValue])
+
 /**
  *	@brief	调试输出
  */

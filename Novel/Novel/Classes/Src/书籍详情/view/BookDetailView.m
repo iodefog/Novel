@@ -190,10 +190,11 @@
             NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:threeTitles[i]];
             attributedString.font = FONT_SIZE(14);
             attributedString.color = kgrayColor;
+            attributedString.lineSpacing = 8;
             
-            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-            [paragraphStyle setLineSpacing:8];
-            [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [threeTitles[i] length])];
+//            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//            [paragraphStyle setLineSpacing:8];
+//            [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [threeTitles[i] length])];
             [label setAttributedText:attributedString];
             [label sizeToFit];
             

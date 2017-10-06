@@ -117,7 +117,8 @@
         completion ();
     };
     
-    [httpUtil GET:NSStringFormat(@"%@/atoc/%@?view=chapters",SERVERCE_HOST,summaryId) parameters:nil responseCache:^(id responseCache) {
+    
+    [httpUtil GET:NSStringFormat(@"%@/toc/%@?view=chapters",SERVERCE_HOST,summaryId) parameters:nil responseCache:^(id responseCache) {
         
         if (responseCache) {
             NSLog(@"有缓存");
@@ -202,44 +203,46 @@
     @weakify(self);
     //查询章节
     [SQLiteTool getChapterTitle:model.title tableName:_bookId success:^(ResultModel *resultModel) {
-        
+
         model.body = resultModel.body;
-        
+
         [model pagingWithBounds:kReadingFrame WithFont:FONT_SIZE(weak_self.font)];
-        
+
         weak_self.page = 0;
-        
+
         if (ispreChapter) {
             weak_self.page = model.pageCount - 1.0;
         }
-        
+
         completion();
-        
+
     } failure:^{
-        
+
+        NSLog(@"请求地址： %@", NSStringFormat(@"%@/chapter/%@",chapter_URL,[NSString encodeToPercentEscapeString:model.link]));
+
         [httpUtil GET:NSStringFormat(@"%@/chapter/%@",chapter_URL,[NSString encodeToPercentEscapeString:model.link]) parameters:nil success:^(id responseObject) {
-            
+
             model.body = [model adjustParagraphFormat:responseObject[@"chapter"][@"body"]];
-            
+
             //存储章节
             [SQLiteTool saveWithTitle:model.title body:model.body tableName:weak_self.bookId];
-            
+
             [model pagingWithBounds:kReadingFrame WithFont:FONT_SIZE(weak_self.font)];
-            
+
             weak_self.page = 0;
-            
+
             if (ispreChapter) {
                 weak_self.page = model.pageCount - 1.0;
             }
-            
+
             completion ();
-            
+
         } failure:^(NSError *error) {
             failure ([error localizedDescription]);
         }];
-        
+
     }];
-        
+    
 }
 
 //同步请求章节

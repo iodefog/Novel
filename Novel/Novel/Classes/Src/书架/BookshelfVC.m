@@ -41,6 +41,8 @@
     self.tableView.emptyDataSetDelegate = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadSelf:) name:@"reloadBookShelf" object:nil];
+    
+    NSLog(@"版本号 %@", [NSDate date]);
 }
 
 //弃用

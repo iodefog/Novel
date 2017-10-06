@@ -335,11 +335,11 @@
 /**
  UUID是Universally Unique Identifier的缩写，中文意思是通用唯一识别码。它是让分布式系统中的所有元素，都能有唯一的辨识资讯，而不需要透过中央控制端来做辨识资讯的指定。这样，每个人都可以建立不与其它人冲突的 UUID。在此情况下，就不需考虑数据库建立时的名称重复问题。苹果公司建议使用UUID为应用生成唯一标识字符串。每次生成都会改变
  */
-+ (NSString *) uuid {
-    return [[Tool shareInstance] uuid];
++ (NSString *)getUUID {
+    return [[Tool shareInstance] getUUID];
 }
 
-- (NSString *)uuid {
+- (NSString *)getUUID {
     CFUUIDRef puuid = CFUUIDCreate( nil );
     CFStringRef uuidString = CFUUIDCreateString( nil, puuid );
     NSString * result = (NSString *)CFBridgingRelease(CFStringCreateCopy( NULL, uuidString));

@@ -32,9 +32,21 @@ static AFHTTPSessionManager *_sessionManager;
     _sessionManager = [AFHTTPSessionManager manager];
     // 设置请求的超时时间
     _sessionManager.requestSerializer.timeoutInterval = 10.f;
+    
     // 设置服务器返回结果的类型:JSON (AFJSONResponseSerializer,AFHTTPResponseSerializer)
     _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
     _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/json", @"text/plain", @"text/javascript", @"text/xml", @"image/*", nil];
+    
+    //伪造请求头
+    [_sessionManager.requestSerializer setValue:@"keep-alive" forHTTPHeaderField:@"Connection"];
+    [_sessionManager.requestSerializer setValue:[Tool getUUID] forHTTPHeaderField:@"X-Device-Id"];
+    
+    [_sessionManager.requestSerializer setValue:NSStringFormat(@"YouShaQi/2.26.31 (iPhone; iOS %@; Scale/2.00)", [[UIDevice currentDevice] systemVersion]) forHTTPHeaderField:@"User-Agent"];
+    [_sessionManager.requestSerializer setValue:@"" forHTTPHeaderField:@"X-User-Agent"];
+    
+    [_sessionManager.requestSerializer setValue:@"zh-Hans-CN;q=1, en-US;q=0.9" forHTTPHeaderField:@"Accept-Language"];
+    
+    
     // 打开状态栏的等待菊花
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }

@@ -118,6 +118,8 @@
  */
 + (NSString *)getDeviceId;
 
++ (NSString *)getUUID;
+
 
 /**
  统一收起键盘
