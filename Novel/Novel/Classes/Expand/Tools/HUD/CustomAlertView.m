@@ -66,8 +66,8 @@
         [self.alertView addSubview:self.titleLbl];
         
         NSMutableAttributedString *titleText = [[NSMutableAttributedString alloc] initWithString:title];
-        titleText.font = FONT_SIZE(16);
-        titleText.color = kBlackColor;
+        titleText.font = fontSize(16);
+        titleText.color = kblackColor;
         
         YYTextContainer *tContainer = [YYTextContainer containerWithSize:CGSizeMake(self.alertView.width_pro - iconImage.width - space, HUGE)];
         tContainer.maximumNumberOfRows = 1;

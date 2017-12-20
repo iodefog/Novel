@@ -5,7 +5,7 @@ inhibit_all_warnings! #忽略pod警告
 target 'Novel' do
   pod 'FMDB'
   pod 'YYKit'
-  pod 'SDWebImage'
+  pod 'ReactiveObjC'
   pod 'AFNetworking'
   pod 'MJRefresh'
   pod 'SVProgressHUD'

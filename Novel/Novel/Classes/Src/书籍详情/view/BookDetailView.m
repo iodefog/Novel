@@ -114,7 +114,7 @@
         
         
         //title
-        _titleLabel = [YYLabel labelWithFrame:CGRectMake(textLeftX, topY, textW, textH) textFont:16 textColor:kBlackColor];
+        _titleLabel = [YYLabel labelWithFrame:CGRectMake(textLeftX, topY, textW, textH) textFont:16 textColor:kblackColor];
         
 //        _titleLabel.text = @"大主宰";
         
@@ -136,7 +136,7 @@
         
         
         //追更新
-        _afterBtn = [UIButton buttonWithFrame:CGRectMake(leftX, _coverView.maxY_pro + coverWithBtnSpace, btnW, btnH) titleFont:nil titleColor_normal:kNormalColor titleColor_highlighted:nil backgroundColor:nil borderColor:[UIColor colorWithRed:0.36 green:0.27 blue:0.34 alpha:1.00] borderWidth:1.0f cornerRadius:5.0f];
+        _afterBtn = [UIButton buttonWithFrame:CGRectMake(leftX, _coverView.maxY_pro + coverWithBtnSpace, btnW, btnH) titleFont:nil titleColor_normal:knormalColor titleColor_highlighted:nil backgroundColor:nil borderColor:[UIColor colorWithRed:0.36 green:0.27 blue:0.34 alpha:1.00] borderWidth:1.0f cornerRadius:5.0f];
         
         [_afterBtn setTitle:@"+ 追更新" forState:UIControlStateNormal];
         
@@ -145,7 +145,7 @@
         [self addSubview:_afterBtn];
         
         //开始阅读
-        _readingBtn = [UIButton buttonWithFrame:CGRectMake(_afterBtn.maxX_pro + btnSpace, _coverView.maxY_pro + coverWithBtnSpace, btnW, btnH) titleFont:nil titleColor_normal:KWhiteColor titleColor_highlighted:nil backgroundColor:[UIColor colorWithRed:0.36 green:0.27 blue:0.34 alpha:1.00] borderColor:nil borderWidth:0 cornerRadius:5.0f];
+        _readingBtn = [UIButton buttonWithFrame:CGRectMake(_afterBtn.maxX_pro + btnSpace, _coverView.maxY_pro + coverWithBtnSpace, btnW, btnH) titleFont:nil titleColor_normal:kwhiteColor titleColor_highlighted:nil backgroundColor:[UIColor colorWithRed:0.36 green:0.27 blue:0.34 alpha:1.00] borderColor:nil borderWidth:0 cornerRadius:5.0f];
         
         [_readingBtn setTitle:@"开始阅读" forState:UIControlStateNormal];
         
@@ -169,6 +169,7 @@
         NSArray *threeTitles = @[@"追书人数\n暂无数据", @"读者留存率\n暂无数据", @"更新字数/天\n暂无数据"];
         
         for (int i = 0; i < threeTitles.count; i++) {
+            
             YYLabel *label = [[YYLabel alloc] init];
             
 //            label.displaysAsynchronously = YES;
@@ -188,7 +189,7 @@
             
             // 设置label的行间距
             NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:threeTitles[i]];
-            attributedString.font = FONT_SIZE(14);
+            attributedString.font = fontSize(15);
             attributedString.color = kgrayColor;
             attributedString.lineSpacing = 8;
             
@@ -210,7 +211,7 @@
         //下划线
         UIView *underLine = [[UIView alloc] initWithFrame:CGRectMake(leftX, _followerLable.maxY_pro, kScreenWidth - leftX*2, 0.5)];
         
-        underLine.backgroundColor = kLineColor;
+        underLine.backgroundColor = klineColor;
         
         [self addSubview:underLine];
         
@@ -242,15 +243,15 @@
         
         //_interestedLabel
         _interestedLabel = [YYLabel new];
-        _interestedLabel.font = FONT_SIZE(16);
-        _interestedLabel.textColor = kBlackColor;
+        _interestedLabel.font = fontSize(16);
+        _interestedLabel.textColor = kblackColor;
         
         [self addSubview:_interestedLabel];
         
         //listBtn
         _moreBtn = [UIButton new];
         [_moreBtn setTitleColor:kgrayColor forState:UIControlStateNormal];
-        _moreBtn.titleLabel.font = FONT_SIZE(15);
+        _moreBtn.titleLabel.font = fontSize(15);
         [self addSubview:_moreBtn];
         
     }
@@ -261,18 +262,18 @@
 #pragma mark - MSSAutoresizeLabelFlowDelegate
 //接收到MSSAutoresizeLabelFlow的最终高度height,这里设置代理，因为tagView布局延时
 - (void)autoLabelHeight:(CGFloat)height {
-    @weakify(self);
+    
     if (_model.tags.count > 0) {
         
         UIView *underLine = [[UIView alloc] initWithFrame:CGRectMake(leftX, _tagsView.maxY_pro, kScreenWidth - leftX*2, 0.5)];
         
-        underLine.backgroundColor = kLineColor;
+        underLine.backgroundColor = klineColor;
         
         [self addSubview:underLine];
 
         if (_shorIntro.length > 0) {
             
-            YYTextLayout *layout = [YYTextLayout layoutWithTitle:_shorIntro textFont:FONT_SIZE(14) textColor:kNormalColor maxSize:CGSizeMake(kScreenWidth - leftX*2, HUGE) maximumNumberOfRows:0 lineSpace:5];
+            YYTextLayout *layout = [YYTextLayout layoutWithTitle:_shorIntro textFont:fontSize(14) textColor:knormalColor maxSize:CGSizeMake(kScreenWidth - leftX*2, HUGE) maximumNumberOfRows:0 lineSpace:5];
             
             _longIntroLabel.size = layout.textBoundingSize;
             
@@ -287,8 +288,8 @@
                 [self addSubview:_upView];
                 
                 [_upView mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.right.mas_equalTo(weak_self).with.offset(-leftX);
-                    make.bottom.mas_equalTo(weak_self.longIntroLabel);
+                    make.right.mas_equalTo(self).with.offset(-leftX);
+                    make.bottom.mas_equalTo(self.longIntroLabel);
                     make.size.mas_equalTo(CGSizeMake(13, 7));
                 }];
             }
@@ -304,7 +305,7 @@
         
         if (_shorIntro.length > 0) {
             
-            YYTextLayout *layout = [YYTextLayout layoutWithTitle:_shorIntro textFont:FONT_SIZE(14) textColor:kNormalColor maxSize:CGSizeMake(kScreenWidth - leftX*2, HUGE) maximumNumberOfRows:0 lineSpace:5];
+            YYTextLayout *layout = [YYTextLayout layoutWithTitle:_shorIntro textFont:fontSize(14) textColor:knormalColor maxSize:CGSizeMake(kScreenWidth - leftX*2, HUGE) maximumNumberOfRows:0 lineSpace:5];
             
             _longIntroLabel.size = layout.textBoundingSize;
             
@@ -318,10 +319,9 @@
                 
                 [self addSubview:_upView];
                 
-                @weakify(self);
                 [_upView mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.right.mas_equalTo(weak_self).with.offset(-leftX);
-                    make.bottom.mas_equalTo(weak_self.longIntroLabel);
+                    make.right.mas_equalTo(self).with.offset(-leftX);
+                    make.bottom.mas_equalTo(self.longIntroLabel);
                     make.size.mas_equalTo(CGSizeMake(13, 7));
                 }];
             }
@@ -353,26 +353,26 @@
         BooksListModel *model = [BooksListModel modelWithDictionary:responseObject];
         
         if (model.books.count > 0) {
-            weak_self.interestedLabel.text = @"你可能感兴趣";
+            self.interestedLabel.text = @"你可能感兴趣";
             
-            weak_self.interestedLabel.frame = CGRectMake(leftX, _underLongIntroLine.maxY_pro, kScreenWidth - leftX*2, 50);
+            self.interestedLabel.frame = CGRectMake(leftX, _underLongIntroLine.maxY_pro, kScreenWidth - leftX*2, 50);
         }
         
-        weak_self.recommentView = [[RecommendView alloc] initWithFrame:CGRectMake(leftX, _interestedLabel.maxY_pro, kScreenWidth - leftX*2, 1) datas:model.books];
+        self.recommentView = [[RecommendView alloc] initWithFrame:CGRectMake(leftX, _interestedLabel.maxY_pro, kScreenWidth - leftX*2, 1) datas:model.books];
         
-        weak_self.recommentView.delegate = weak_self;
+        self.recommentView.delegate = self;
         
-        [weak_self addSubview:weak_self.recommentView];
+        [self addSubview:self.recommentView];
         
-        if ([weak_self.delegate respondsToSelector:@selector(bookDetailViewHeight:)]) {
-            [weak_self.delegate bookDetailViewHeight:_height];
+        if ([self.delegate respondsToSelector:@selector(bookDetailViewHeight:)]) {
+            [self.delegate bookDetailViewHeight:_height];
         }
 
     } failure:^(NSError *error) {
-        weak_self.height = weak_self.interestedLabel.maxY_pro + 50;
+        self.height = self.interestedLabel.maxY_pro + 50;
         
-        if ([weak_self.delegate respondsToSelector:@selector(bookDetailViewHeight:)]) {
-            [weak_self.delegate bookDetailViewHeight:_height];
+        if ([self.delegate respondsToSelector:@selector(bookDetailViewHeight:)]) {
+            [self.delegate bookDetailViewHeight:_height];
         }
         
         [SVProgressHUD showErrorWithStatus:[error localizedDescription]];
@@ -383,13 +383,13 @@
 #pragma mark - RecommendViewDelegate
 - (void)RecommendViewDelegateSuccess {
     
-    @weakify(self);
+    
     [_moreBtn addTarget:self action:@selector(didclickMoreBooks) forControlEvents:UIControlEventTouchDown];
     [_moreBtn setTitle:@"更多" forState:UIControlStateNormal];
     [_moreBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(weak_self.mas_right).with.offset(-leftX);
-        make.centerY.mas_equalTo(weak_self.interestedLabel.mas_centerY);
-        make.size.mas_equalTo(CGSizeMake(50, weak_self.interestedLabel.height/2));
+        make.right.mas_equalTo(self.mas_right).with.offset(-leftX);
+        make.centerY.mas_equalTo(self.interestedLabel.mas_centerY);
+        make.size.mas_equalTo(CGSizeMake(50, self.interestedLabel.height/2));
     }];
     
     self.height = self.recommentView.maxY_pro + 50;
@@ -417,7 +417,7 @@
     
     if (NO ==_is_up) {
         
-        YYTextLayout *layout = [YYTextLayout layoutWithTitle:_model.longIntro textFont:FONT_SIZE(14) textColor:kNormalColor maxSize:CGSizeMake(kScreenWidth - leftX*2, HUGE) maximumNumberOfRows:0 lineSpace:5];
+        YYTextLayout *layout = [YYTextLayout layoutWithTitle:_model.longIntro textFont:fontSize(14) textColor:knormalColor maxSize:CGSizeMake(kScreenWidth - leftX*2, HUGE) maximumNumberOfRows:0 lineSpace:5];
         
         _longIntroLabel.size = layout.textBoundingSize;
         
@@ -426,7 +426,7 @@
         _is_up = YES;
     } else {
         
-        YYTextLayout *layout = [YYTextLayout layoutWithTitle:_shorIntro textFont:FONT_SIZE(14) textColor:kNormalColor maxSize:CGSizeMake(kScreenWidth - leftX*2, HUGE) maximumNumberOfRows:0 lineSpace:5];
+        YYTextLayout *layout = [YYTextLayout layoutWithTitle:_shorIntro textFont:fontSize(14) textColor:knormalColor maxSize:CGSizeMake(kScreenWidth - leftX*2, HUGE) maximumNumberOfRows:0 lineSpace:5];
         
         _longIntroLabel.size = layout.textBoundingSize;
         
@@ -447,9 +447,8 @@
         [self.delegate bookDetailViewHeight:_height];
     }
     
-    @weakify(self);
     [UIView animateWithDuration:0.5 animations:^{
-        weak_self.upView.layer.transform = CATransform3DMakeRotation(weak_self.is_up ? M_PI:0, 1, 0, 0);
+        self.upView.layer.transform = CATransform3DMakeRotation(self.is_up ? M_PI:0, 1, 0, 0);
     }];
 }
 
@@ -480,7 +479,7 @@
     NSString *str = [NSString stringWithFormat:@"%@ | %@ | %@",model.author,model.cat,[model getBookWordCount]];
     
     NSMutableAttributedString *titleAttri = [[NSMutableAttributedString alloc] initWithString:str];
-    titleAttri.font = FONT_SIZE(12);
+    titleAttri.font = fontSize(14);
     titleAttri.color = kgrayColor;
     [titleAttri setColor:[UIColor colorWithRed:0.71 green:0.13 blue:0.13 alpha:1.00] range:NSMakeRange(0, model.author.length)];
     

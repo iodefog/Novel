@@ -11,7 +11,7 @@ typedef NS_ENUM(int, kTableViewOperation) {
     kCellDelete_type
 };
 
-#import "BaseViewController.h"
+#import "BaseTableViewController.h"
 
 @interface RankingVC : BaseTableViewController
 

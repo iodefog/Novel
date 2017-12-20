@@ -37,8 +37,6 @@
 
     self.tableView.backgroundColor = [UIColor colorWithRed:0.90 green:0.90 blue:0.90 alpha:1.00];
     
-    @weakify(self);
-    
     self.tableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
     
     CGFloat statusBarH = 20;
@@ -53,7 +51,7 @@
     [_topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(-topH);
         make.left.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(weak_self.tableView.width, topH));
+        make.size.mas_equalTo(CGSizeMake(self.tableView.width, topH));
     }];
     
     // 将topView移到最顶层，防止被其他view挡住
@@ -62,7 +60,7 @@
     // 设置tableView的向下偏移topH
     self.tableView.contentInset = UIEdgeInsetsMake(topH, 0, 0, 0);
     
-    CGFloat rightW = [@"到顶部" sizeForFont:FONT_SIZE(14) size:CGSizeMake(kScreenWidth, middleH) mode:NSLineBreakByWordWrapping].width+10;
+    CGFloat rightW = [@"到顶部" sizeForFont:fontSize(14) size:CGSizeMake(kScreenWidth, middleH) mode:NSLineBreakByWordWrapping].width+10;
     
     //返回
      UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - kSpaceX - rightW, statusBarH, rightW, middleH)];
@@ -81,8 +79,8 @@
     YYLabel *titleLabel = [[YYLabel alloc] initWithFrame:CGRectMake(titleLeftX , statusBarH, titleW, middleH)];
     titleLabel.numberOfLines = 1;
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.textColor = KWhiteColor;
-    titleLabel.font = FONT_BOLD_SIZE(16);
+    titleLabel.textColor = kwhiteColor;
+    titleLabel.font = fontBoldSize(16);
     titleLabel.text = @"选择来源";
     
     [_topView addSubview:titleLabel];
@@ -93,11 +91,10 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    @weakify(self);
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offset = self.tableView.contentOffset.y;
-    [weak_self.topView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [self.topView mas_updateConstraints:^(MASConstraintMaker *make) {
         // 此处如果有navigationBar的高度，应加上
         make.top.mas_equalTo(offset + 0);
     }];
@@ -113,7 +110,7 @@
     
 //    [MBProgressHUD showActivityMessageInView:nil];
     
-    @weakify(self);
+    xxWeakify(self)
     
     [httpUtil GET:NSStringFormat(@"%@/toc?book=%@&view=summary",SERVERCE_HOST, _bookId) parameters:nil success:^(id responseObject) {
         
@@ -140,7 +137,7 @@
 //                    model.isSelect = YES;
 //                }
                 
-                if (weak_self.summaryId.length > 0 && [model._id isEqualToString:weak_self.summaryId]) {
+                if (weakself.summaryId.length > 0 && [model._id isEqualToString:weakself.summaryId]) {
                     model.isSelect = YES;
                     isFirst = NO;
                 }
@@ -154,12 +151,11 @@
             model.isSelect = YES;
         }
         
-        
-        weak_self.datas = datas;
+        weakself.datas = datas;
         
         [HUD hide];
         
-        [weak_self.tableView reloadData];
+        [weakself.tableView reloadData];
         
     } failure:^(NSError *error) {
         [HUD hide];
@@ -199,17 +195,19 @@
     }
     
     NSUInteger index = [_datas indexOfObject:selectModel];
-    @weakify(self);
+    
+    xxWeakify(self)
+    
     if (index != indexPath.row) {
         [self dismissViewControllerAnimated:YES completion:^{
             
-            if (self.summarySelect) {
-                SummaryModel *model = _datas[indexPath.row];
+            if (weakself.summarySelect) {
+                SummaryModel *model = weakself.datas[indexPath.row];
                 model.isSelect = YES;
                 selectModel.isSelect = NO;
-                self.summarySelect (model._id);
+                weakself.summarySelect (model._id);
             }
-            [weak_self.tableView reloadData];
+            [weakself.tableView reloadData];
         }];
     } else {
         [HUD showMsgWithoutView:@"请选择其他源哦！"];

@@ -81,7 +81,7 @@ static NSString *ID = @"shelfCellID";
     
     //title
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:model.title];
-    title.font = FONT_SIZE(16);
+    title.font = fontSize(16);
     title.lineBreakMode = NSLineBreakByTruncatingTail;
     
     UIImage *updateImage = [UIImage imageNamed:@"update_image"];
@@ -122,7 +122,7 @@ static NSString *ID = @"shelfCellID";
     NSString *chapterStr = NSStringFormat(@"%@%@",[[[DateTools shareDate] getUpdateStringWith:[DateTools dateFromString:model.updated dateformatter:kCustomDateFormat]] stringByAppendingString:@"更新"],model.lastChapter);
     
     NSMutableAttributedString *chapterText = [[NSMutableAttributedString alloc] initWithString:chapterStr];
-    chapterText.font = FONT_SIZE(12);
+    chapterText.font = fontSize(12);
     chapterText.color = kgrayColor;
     chapterText.lineBreakMode = NSLineBreakByTruncatingTail;
     
@@ -139,7 +139,7 @@ static NSString *ID = @"shelfCellID";
     
     //添加线条
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(kCellX, ShelfCellHeight - 0.5 , kScreenWidth - kCellX*2, 0.5)];
-    line.backgroundColor = kLineColor;
+    line.backgroundColor = klineColor;
     
     [self.contentView addSubview:line];
 }
@@ -149,7 +149,7 @@ static NSString *ID = @"shelfCellID";
     
     if (0 == row) {
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(kCellX, 0.5 , kScreenWidth - kCellX*2, 0.5)];
-        line.backgroundColor = kLineColor;
+        line.backgroundColor = klineColor;
         
         [self.contentView addSubview:line];
     }

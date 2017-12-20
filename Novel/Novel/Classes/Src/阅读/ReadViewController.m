@@ -71,7 +71,7 @@
     
     BookChapterModel *bookModel = self.manager.chapters[self.manager.chapter];
     
-    [bookModel pagingWithBounds:kReadingFrame WithFont:FONT_SIZE(_manager.font)];
+    [bookModel pagingWithBounds:kReadingFrame WithFont:fontSize(_manager.font)];
     
     //跳转回盖章的第一页
     
@@ -98,7 +98,7 @@
         _settingView.hidden = YES;
         [self.menuView.view addSubview:_settingView];
         
-        @weakify(self);
+        xxWeakify(self)
         _settingView.changeSmallerFontBlock = ^{
             
             BookSettingModel *md = [BookSettingModel decodeModelWithKey:[BookSettingModel className]];
@@ -107,11 +107,11 @@
             
             md.font -= 1;
             
-            weak_self.manager.font = md.font;
+            weakself.manager.font = md.font;
             
             [BookSettingModel encodeModel:md key:[BookSettingModel className]];
             
-            [weak_self changeWithFont];
+            [weakself changeWithFont];
         };
         
         _settingView.changeBiggerFontBlock = ^{
@@ -120,11 +120,11 @@
             
             md.font += 1;
             
-            weak_self.manager.font = md.font;
+            weakself.manager.font = md.font;
             
             [BookSettingModel encodeModel:md key:[BookSettingModel className]];
             
-            [weak_self changeWithFont];
+            [weakself changeWithFont];
             
         };
     }
@@ -154,7 +154,7 @@
         tap.delegate = self;
         [_menuView.view addGestureRecognizer:tap];
         
-        @weakify(self);
+        xxWeakify(self)
         self.menuView.menuTap = ^(NSInteger tag) {
             switch (tag) {
                     
@@ -166,8 +166,8 @@
                     break;
                 case 2: {
                     //目录
-                    [weak_self.directoryVC reloadDirectoryView];
-                    [weak_self presentViewController:weak_self.directoryVC animated:YES completion:nil];
+                    [weakself.directoryVC reloadDirectoryView];
+                    [weakself presentViewController:weakself.directoryVC animated:YES completion:nil];
                     
                 }
                     break;
@@ -181,14 +181,14 @@
                 case 4: {
                     //设置
                     
-                    if (weak_self.isSetting) {
+                    if (weakself.isSetting) {
                         //已经弹出
-                        weak_self.settingView.hidden = YES;
-                        weak_self.isSetting = NO;
+                        weakself.settingView.hidden = YES;
+                        weakself.isSetting = NO;
                         
                     } else {
-                        weak_self.settingView.hidden = NO;
-                        weak_self.isSetting = YES;
+                        weakself.settingView.hidden = NO;
+                        weakself.isSetting = YES;
                     }
                 }
                     
@@ -196,9 +196,9 @@
                     
                 case 5: {
                     //换源
-                    weak_self.summaryVC.bookId = weak_self.bookId;
-                    weak_self.summaryVC.summaryId = weak_self.summaryId;
-                    [weak_self presentViewController:weak_self.summaryVC animated:YES completion:nil];
+                    weakself.summaryVC.bookId = weakself.bookId;
+                    weakself.summaryVC.summaryId = weakself.summaryId;
+                    [weakself presentViewController:weakself.summaryVC animated:YES completion:nil];
                 }
                     
                     break;
@@ -206,11 +206,11 @@
                 case 6: {
                     //取消返回
                     //保存进度，chapter，page，status=0 -->NO 不显示  status=1 -->YES 显示
-                    [SQLiteTool updateWithTableName:weak_self.bookId dict:@{@"chapter": @(weak_self.manager.chapter), @"page": @(weak_self.manager.page), @"status": @"0"}];
+                    [SQLiteTool updateWithTableName:weakself.bookId dict:@{@"chapter": @(weakself.manager.chapter), @"page": @(weakself.manager.page), @"status": @"0"}];
                     
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadBookShelf" object:nil];
                     
-                    [weak_self dismissViewControllerAnimated:YES completion:nil];
+                    [weakself dismissViewControllerAnimated:YES completion:nil];
                 }
                     
                     break;
@@ -228,36 +228,36 @@
     if (!_directoryVC) {
         _directoryVC = [DirectoryViewController new];
         
-        @weakify(self);
+        xxWeakify(self)
         _directoryVC.selectChapter = ^(NSInteger chapter) {
             
-            [HUD showProgress:nil inView:weak_self.view];
+            [HUD showProgress:nil inView:weakself.view];
             
-            if (!weak_self.directoryVC.isLast) {
-                [weak_self.menuView hideMenuViewWithDuration:0.1 completion:^{
-                    weak_self.isMenu = NO;
-                    [weak_self setStatusBarHidden:YES];
+            if (!weakself.directoryVC.isLast) {
+                [weakself.menuView hideMenuViewWithDuration:0.1 completion:^{
+                    weakself.isMenu = NO;
+                    [weakself setStatusBarHidden:YES];
                     //                    [weak_self setNeedsStatusBarAppearanceUpdate]; //刷新状态栏
                     
                 }];
             }
             
-            weak_self.manager.chapter = chapter;
-            weak_self.ispreChapter = NO;
-            weak_self.isReplaceSummary = NO;
-            weak_self.directoryVC.isLast = NO;
+            weakself.manager.chapter = chapter;
+            weakself.ispreChapter = NO;
+            weakself.isReplaceSummary = NO;
+            weakself.directoryVC.isLast = NO;
             
-            weak_self.downlownNumber = 0;
+            weakself.downlownNumber = 0;
             
             //异步请求章节
             
-            [weak_self.manager updateWithChapterAsync:weak_self.manager.chapter ispreChapter:weak_self.ispreChapter completion:^{
+            [weakself.manager updateWithChapterAsync:weakself.manager.chapter ispreChapter:weakself.ispreChapter completion:^{
                 
-                [weak_self.pageViewController setController:[weak_self updateWithChapter:weak_self.manager.chapter]];
+                [weakself.pageViewController setController:[weakself updateWithChapter:weakself.manager.chapter]];
                 
-                weak_self.downlownNumber = 0;
+                weakself.downlownNumber = 0;
                 //预下载
-                [weak_self downlownChapter];
+                [weakself downlownChapter];
                 
             } failure:^(NSString *error) {
                 [HUD hide];
@@ -274,22 +274,22 @@
     if (!_summaryVC) {
         _summaryVC = [SummaryViewController new];
         
-        @weakify(self);
+        xxWeakify(self)
         _summaryVC.summarySelect = ^(NSString *id) {
             
-            [weak_self.menuView hideMenuViewWithDuration:0.0001 completion:^{
-                weak_self.isMenu = NO;
-                [weak_self setNeedsStatusBarAppearanceUpdate]; //刷新状态栏
+            [weakself.menuView hideMenuViewWithDuration:0.0001 completion:^{
+                weakself.isMenu = NO;
+                [weakself setNeedsStatusBarAppearanceUpdate]; //刷新状态栏
                 
             }];
             
             //保存下进度---
-            [SQLiteTool updateWithTableName:weak_self.bookId dict:@{@"chapter": @(weak_self.manager.chapter), @"page": @(weak_self.manager.page), @"summaryId": id}];
+            [SQLiteTool updateWithTableName:weakself.bookId dict:@{@"chapter": @(weakself.manager.chapter), @"page": @(weakself.manager.page), @"summaryId": id}];
             
-            weak_self.summaryId = id;
-            weak_self.isReplaceSummary = YES;
+            weakself.summaryId = id;
+            weakself.isReplaceSummary = YES;
             
-            [weak_self onLoadDataByRequest];
+            [weakself onLoadDataByRequest];
         };
     }
     return _summaryVC;
@@ -370,34 +370,34 @@
     _manager.chapter = [book.chapter integerValue];
     _manager.page = [book.page integerValue];
     
-    @weakify(self);
+    xxWeakify(self)
     
     void(^go2directoryVC)() = ^() {
         [HUD hide];
-        weak_self.directoryVC.isLast = YES;
-        weak_self.directoryVC.chapter = _manager.chapter;
-        [weak_self.directoryVC reloadDirectoryView];
-        [weak_self presentViewController:weak_self.directoryVC animated:YES completion:nil];
+        weakself.directoryVC.isLast = YES;
+        weakself.directoryVC.chapter = _manager.chapter;
+        [weakself.directoryVC reloadDirectoryView];
+        [weakself presentViewController:weakself.directoryVC animated:YES completion:nil];
     };
     
     void(^updateWithChapter)() = ^() {
         
-        [HUD showProgress:nil inView:weak_self.view];
+        [HUD showProgress:nil inView:weakself.view];
         
         //请求章节数组
-        [weak_self.manager onloadChaptersWithId:weak_self.manager.summaryId completion:^{
+        [weakself.manager onloadChaptersWithId:weakself.manager.summaryId completion:^{
             
             
-            if (!weak_self.isReplaceSummary) {
+            if (!weakself.isReplaceSummary) {
                 
-                if (weak_self.manager.chapter <= weak_self.manager.chapters.count - 1) {
+                if (weakself.manager.chapter <= weakself.manager.chapters.count - 1) {
                     //异步请求章节
-                    [weak_self.manager updateWithChapterAsync:weak_self.manager.chapter ispreChapter:weak_self.ispreChapter completion:^{
+                    [weakself.manager updateWithChapterAsync:weakself.manager.chapter ispreChapter:weakself.ispreChapter completion:^{
                         
-                        weak_self.manager.page = [book.page integerValue];
+                        weakself.manager.page = [book.page integerValue];
                         
                         //初始化显示控制器
-                        [weak_self.pageViewController setController:[weak_self updateWithChapter:weak_self.manager.chapter]];
+                        [weakself.pageViewController setController:[weakself updateWithChapter:weakself.manager.chapter]];
                         
                     } failure:^(NSString *error) {
                         [HUD hide];
@@ -429,18 +429,18 @@
             //用bookId请求拿到源id--自动选择
             [_manager updateWithSummary:_bookId completion:^{
                 
-                if (weak_self.manager.summaryId.length == 0) {
+                if (weakself.manager.summaryId.length == 0) {
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"⚠️" message:@"当前书籍没有源更新!" preferredStyle:UIAlertControllerStyleAlert];
                     
                     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                         
                         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
                         
-                        [weak_self dismissViewControllerAnimated:YES completion:nil];
+                        [weakself dismissViewControllerAnimated:YES completion:nil];
                         
                     }]];
                     
-                    [weak_self presentViewController:alert animated:YES completion:^{
+                    [weakself presentViewController:alert animated:YES completion:^{
                         [HUD hide];
                     }];
                 } else {
@@ -475,7 +475,7 @@
 #pragma mark - 弹出或隐藏菜单  KPageViewControllerDelegate
 - (void)KPageViewControllerTapWithMenu {
     
-    @weakify(self);
+    xxWeakify(self)
     
     if (_settingView) {
         self.settingView.hidden = YES;
@@ -483,19 +483,19 @@
     }
     
     self.menuView.link = ((BookChapterModel *)_manager.chapters[_manager.chapter]).link;
-    self.menuView.bookTitle = weak_self.bookTitle;
+    self.menuView.bookTitle = weakself.bookTitle;
     
     if (self.isMenu) {
         [self.menuView hideMenuViewWithDuration:0.3 completion:^{
-            weak_self.isMenu = NO;
-            [weak_self setStatusBarHidden:YES];
+            weakself.isMenu = NO;
+            [weakself setStatusBarHidden:YES];
             //            [weak_self setNeedsStatusBarAppearanceUpdate]; //刷新状态栏
         }];
         
     } else {
         [self.menuView showMenuViewWithDuration:0.3 completion:^{
-            weak_self.isMenu = YES;
-            [weak_self setStatusBarHidden:NO];
+            weakself.isMenu = YES;
+            [weakself setStatusBarHidden:NO];
             
             //            [weak_self setNeedsStatusBarAppearanceUpdate]; //刷新状态栏
         }];
@@ -570,14 +570,14 @@
     //    // 创建一个新的控制器类，并且分配给相应的数据
     ContentViewController *contentVC = [[ContentViewController alloc] init];
     
-    @weakify(self);
+    xxWeakify(self)
     void(^parameterBlock)() = ^{
         
-        contentVC.bookModel = weak_self.manager.chapters[weak_self.manager.chapter];
+        contentVC.bookModel = weakself.manager.chapters[weakself.manager.chapter];
         
-        contentVC.chapter = weak_self.manager.chapter;
+        contentVC.chapter = weakself.manager.chapter;
         
-        contentVC.page = weak_self.manager.page;
+        contentVC.page = weakself.manager.page;
         
         [HUD hide];
     };
@@ -590,7 +590,7 @@
             parameterBlock();
             
             //预下载
-            [weak_self downlownChapter];
+            [weakself downlownChapter];
             
         } failure:^(NSString *error) {
             [HUD hide];

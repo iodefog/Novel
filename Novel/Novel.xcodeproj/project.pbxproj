@@ -11,7 +11,6 @@
 		697A6FD21F1A226E00DE75A7 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A6F0C1F1A226E00DE75A7 /* BaseModel.m */; };
 		697A6FD31F1A226E00DE75A7 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A6F0F1F1A226E00DE75A7 /* BaseCell.m */; };
 		697A6FD41F1A226E00DE75A7 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A6F111F1A226E00DE75A7 /* BaseScrollView.m */; };
-		697A6FD51F1A226E00DE75A7 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A6F131F1A226E00DE75A7 /* BaseTableView.m */; };
 		697A6FEE1F1A226E00DE75A7 /* refresh_loading@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 697A6F4F1F1A226E00DE75A7 /* refresh_loading@2x.gif */; };
 		697A6FEF1F1A226E00DE75A7 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A6F521F1A226E00DE75A7 /* MainViewController.m */; };
 		697A6FF01F1A226E00DE75A7 /* BookshelfVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A6F551F1A226E00DE75A7 /* BookshelfVC.m */; };
@@ -111,6 +110,7 @@
 		697A70AE1F1A349600DE75A7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 697A70AD1F1A349600DE75A7 /* BaseViewController.m */; };
 		697DE1D91ED690DC00FF931E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 697DE1D71ED690DC00FF931E /* LaunchScreen.storyboard */; };
 		828E271B64BBAA36AE4ED566 /* Pods_Novel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6959C20ED5B78B24D57ACEF7 /* Pods_Novel.framework */; };
+		DDDD978F1FEA202700BBACD0 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDD978E1FEA202700BBACD0 /* BaseTableViewController.m */; };
 		F3EE62021E409971008EB0BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EE62011E409971008EB0BF /* main.m */; };
 		F3EE620B1E409971008EB0BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3EE62091E409971008EB0BF /* Main.storyboard */; };
 		F3EE620D1E409971008EB0BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3EE620C1E409971008EB0BF /* Assets.xcassets */; };
@@ -146,8 +146,6 @@
 		697A6F0F1F1A226E00DE75A7 /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
 		697A6F101F1A226E00DE75A7 /* BaseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseScrollView.h; sourceTree = "<group>"; };
 		697A6F111F1A226E00DE75A7 /* BaseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseScrollView.m; sourceTree = "<group>"; };
-		697A6F121F1A226E00DE75A7 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
-		697A6F131F1A226E00DE75A7 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		697A6F4C1F1A226E00DE75A7 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		697A6F4F1F1A226E00DE75A7 /* refresh_loading@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "refresh_loading@2x.gif"; sourceTree = "<group>"; };
 		697A6F511F1A226E00DE75A7 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -329,6 +327,8 @@
 		697C30781F1CDCFC00F82B2B /* *.zhuishushenqi.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "*.zhuishushenqi.com.cer"; sourceTree = "<group>"; };
 		697DE1D81ED690DC00FF931E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93495C68F67526F94500555E /* Pods-Novel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Novel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Novel/Pods-Novel.debug.xcconfig"; sourceTree = "<group>"; };
+		DDDD978D1FEA202700BBACD0 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		DDDD978E1FEA202700BBACD0 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		F3EE61FD1E409971008EB0BF /* Novel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Novel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EE62011E409971008EB0BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F3EE620A1E409971008EB0BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -451,8 +451,6 @@
 				697A6F0F1F1A226E00DE75A7 /* BaseCell.m */,
 				697A6F101F1A226E00DE75A7 /* BaseScrollView.h */,
 				697A6F111F1A226E00DE75A7 /* BaseScrollView.m */,
-				697A6F121F1A226E00DE75A7 /* BaseTableView.h */,
-				697A6F131F1A226E00DE75A7 /* BaseTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -460,6 +458,8 @@
 		697A6F141F1A226E00DE75A7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DDDD978D1FEA202700BBACD0 /* BaseTableViewController.h */,
+				DDDD978E1FEA202700BBACD0 /* BaseTableViewController.m */,
 				697A70A91F1A313F00DE75A7 /* BaseNavigationViewController.h */,
 				697A70AA1F1A313F00DE75A7 /* BaseNavigationViewController.m */,
 				697A70AC1F1A349600DE75A7 /* BaseViewController.h */,
@@ -1145,7 +1145,7 @@
 				TargetAttributes = {
 					F3EE61FC1E409971008EB0BF = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = K48346UACH;
+						DevelopmentTeam = YGVLR7CG44;
 						ProvisioningStyle = Automatic;
 					};
 					F3EE62151E409971008EB0BF = {
@@ -1221,9 +1221,30 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Novel/Pods-Novel-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1251,13 +1272,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Novel-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1270,13 +1294,13 @@
 				697A6FFB1F1A226E00DE75A7 /* BooksListModel.m in Sources */,
 				697A703E1F1A28F200DE75A7 /* CustomAlertView.m in Sources */,
 				697A70811F1A2B1000DE75A7 /* NSObject+Tool.m in Sources */,
-				697A6FD51F1A226E00DE75A7 /* BaseTableView.m in Sources */,
 				697A6FF91F1A226E00DE75A7 /* BooksListMainController.m in Sources */,
 				697A6FFA1F1A226E00DE75A7 /* BooksListLayout.m in Sources */,
 				697A6FD41F1A226E00DE75A7 /* BaseScrollView.m in Sources */,
 				697A701C1F1A226E00DE75A7 /* NJKWebViewProgressView.m in Sources */,
 				697A70441F1A28F200DE75A7 /* XWRegularExpression.m in Sources */,
 				697A700C1F1A226E00DE75A7 /* BatteryView.m in Sources */,
+				DDDD978F1FEA202700BBACD0 /* BaseTableViewController.m in Sources */,
 				697A6FD31F1A226E00DE75A7 /* BaseCell.m in Sources */,
 				697A6FD21F1A226E00DE75A7 /* BaseModel.m in Sources */,
 				697A70171F1A226E00DE75A7 /* MJDIYHeader.m in Sources */,
@@ -1500,7 +1524,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = K48346UACH;
+				DEVELOPMENT_TEAM = YGVLR7CG44;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Novel/Classes/Vender/SDKFiles/Alipay",
@@ -1532,7 +1556,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = K48346UACH;
+				DEVELOPMENT_TEAM = YGVLR7CG44;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Novel/Classes/Vender/SDKFiles/Alipay",

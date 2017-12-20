@@ -6,8 +6,8 @@
 //  Copyright © 2017年 th. All rights reserved.
 //
 
-#define RankCellHeight 50.0f //cell高度
-#define RankCoverWidth 30.0f //cover宽高
+#define RankCellHeight xxAdaWidth(50.0f) //cell高度
+#define RankCoverWidth xxAdaWidth(30.0f) //cover宽高
 #define  RankTitleFont 16 //字体大小
 
 #import "BaseCell.h"

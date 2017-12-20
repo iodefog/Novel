@@ -74,8 +74,7 @@
 - (void)updateWithSummary:(NSString *)bookId completion:(void(^)())completion failure:(void(^)(NSString *error))failure {
     
     //请求源
-    @weakify(self);
-    
+    xxWeakify(self)
     
     [httpUtil GET:NSStringFormat(@"%@/toc?view=summary&book=%@",SERVERCE_HOST,bookId) parameters:nil success:^(id responseObject) {
         
@@ -91,8 +90,8 @@
         }
         
         if (summarys.count > 0) {
-            weak_self.summaryId = ((SummaryModel *)summarys[0])._id;
-            [SQLiteTool updateWithTableName:weak_self.bookId dict:@{@"summaryId": weak_self.summaryId}];
+            weakself.summaryId = ((SummaryModel *)summarys[0])._id;
+            [SQLiteTool updateWithTableName:weakself.bookId dict:@{@"summaryId": weakself.summaryId}];
         }
         
         completion ();
@@ -107,12 +106,12 @@
 //请求章节数组
 - (void)onloadChaptersWithId:(NSString *)summaryId completion:(void(^)())completion failure:(void(^)(NSString *error))failure {
     
-    @weakify(self);
+    xxWeakify(self)
     
     void(^completionBlock)(id) = ^(id responseObject){
         NSArray *arr = [NSArray modelArrayWithClass:[BookChapterModel class] json:responseObject[@"chapters"]];
         
-        weak_self.chapters = arr;
+        weakself.chapters = arr;
         
         completion ();
     };
@@ -145,7 +144,7 @@
 //预下载章节
 - (void)downLoadChapterWithNumber:(NSInteger)number {
     
-    @weakify(self);
+    xxWeakify(self)
     
     void(^downLownChapter)(NSInteger i) = ^(NSInteger i){
         
@@ -163,7 +162,7 @@
                 model.body = [model adjustParagraphFormat:responseObject[@"chapter"][@"body"]];
                 
                 //存储章节
-                [SQLiteTool saveWithTitle:model.title body:model.body tableName:weak_self.bookId];
+                [SQLiteTool saveWithTitle:model.title body:model.body tableName:weakself.bookId];
                 
             } failure:^(NSError *error) {
                 
@@ -200,18 +199,18 @@
     
     BookChapterModel *model = self.chapters[chapter];
     
-    @weakify(self);
+    xxWeakify(self)
     //查询章节
     [SQLiteTool getChapterTitle:model.title tableName:_bookId success:^(ResultModel *resultModel) {
 
         model.body = resultModel.body;
 
-        [model pagingWithBounds:kReadingFrame WithFont:FONT_SIZE(weak_self.font)];
+        [model pagingWithBounds:kReadingFrame WithFont:fontSize(weakself.font)];
 
-        weak_self.page = 0;
+        weakself.page = 0;
 
         if (ispreChapter) {
-            weak_self.page = model.pageCount - 1.0;
+            weakself.page = model.pageCount - 1.0;
         }
 
         completion();
@@ -225,14 +224,14 @@
             model.body = [model adjustParagraphFormat:responseObject[@"chapter"][@"body"]];
 
             //存储章节
-            [SQLiteTool saveWithTitle:model.title body:model.body tableName:weak_self.bookId];
+            [SQLiteTool saveWithTitle:model.title body:model.body tableName:weakself.bookId];
 
-            [model pagingWithBounds:kReadingFrame WithFont:FONT_SIZE(weak_self.font)];
+            [model pagingWithBounds:kReadingFrame WithFont:fontSize(weakself.font)];
 
-            weak_self.page = 0;
+            weakself.page = 0;
 
             if (ispreChapter) {
-                weak_self.page = model.pageCount - 1.0;
+                weakself.page = model.pageCount - 1.0;
             }
 
             completion ();
@@ -250,17 +249,17 @@
     
     BookChapterModel *model = self.chapters[chapter];
     
-    @weakify(self);
+    xxWeakify(self)
     [httpUtil doRequest:NSStringFormat(@"%@/chapter/%@",chapter_URL,[NSString encodeToPercentEscapeString:model.link]) parameters:nil requestType:GET_http isCache:NO success:^(id responseObject) {
         
         model.body = [model adjustParagraphFormat:responseObject[@"chapter"][@"body"]];
         
-        [model pagingWithBounds:kReadingFrame  WithFont:FONT_SIZE(weak_self.font)];
+        [model pagingWithBounds:kReadingFrame  WithFont:fontSize(weakself.font)];
         
-        weak_self.page = 0;
+        weakself.page = 0;
         
         if (ispreChapter) {
-            weak_self.page = model.pageCount - 1.0;
+            weakself.page = model.pageCount - 1.0;
         }
         
         completion ();

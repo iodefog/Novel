@@ -25,7 +25,7 @@
     
     YYLabel *label = [[YYLabel alloc] initWithFrame:frame];
     
-    label.font = FONT_SIZE(font);
+    label.font = fontSize(font);
     
     label.displaysAsynchronously = YES;
     //    label.ignoreCommonProperties = YES;这里不能为yes,因为这里不用textLayout布局
@@ -34,7 +34,7 @@
     
     
     if (!color) {
-        label.textColor = kBlackColor;
+        label.textColor = kblackColor;
     } else {
         label.textColor = color;
     }

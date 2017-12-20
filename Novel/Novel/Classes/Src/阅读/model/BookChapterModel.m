@@ -44,7 +44,7 @@
     
     NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:self.body];
     attr.font = font;
-    attr.color = kBlackColor;
+    attr.color = kblackColor;
     
     // 设置label的行间距
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -104,9 +104,9 @@
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithAttributedString:[self.attributedString attributedSubstringFromRange:NSMakeRange(loc, len)]];
         
         if ([ReadingManager shareReadingManager].bgColor == 5) {
-            text.color = KWhiteColor;
+            text.color = kwhiteColor;
         } else {
-            text.color = kBlackColor;
+            text.color = kblackColor;
         }
         
         //        return [_content substringWithRange:NSMakeRange(loc, len)];

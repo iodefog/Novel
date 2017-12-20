@@ -34,17 +34,14 @@
 
 @implementation RankingVC
 
-- (instancetype)initWithStyle:(UITableViewStyle)style {
-    //设置UITableViewStyleGrouped样式
-    return [super initWithStyle:UITableViewStyleGrouped];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    @weakify(self);
+    [self initTableViewStyle:UITableViewStyleGrouped];
+    
+    xxWeakify(self)
     self.tableView.mj_header = [MJDIYHeader headerWithRefreshingBlock:^{
-        [weak_self onLoadDataByRequestWithFirst:NO];
+        [weakself onLoadDataByRequestWithFirst:NO];
     }];
 }
 
@@ -59,7 +56,8 @@
     [self onLoadDataByRequestWithFirst:YES];
 }
 - (void)onLoadDataByRequestWithFirst:(BOOL)first {
-    @weakify(self);
+    
+    xxWeakify(self)
     
     if (first) {
         [HUD showProgressCircleNoValue:nil inView:self.view];
@@ -67,12 +65,12 @@
     
     [httpUtil GET:NSStringFormat(@"%@/ranking/gender",SERVERCE_HOST) parameters:@{@"timestamp":[DateTools getTimeInterval],@"platform":@"ios"} success:^(id responseObject) {
         
-        weak_self.layouts = nil;
-        weak_self.maleMoreArr = nil;
-        weak_self.femaleMoreArr = nil;
+        weakself.layouts = nil;
+        weakself.maleMoreArr = nil;
+        weakself.femaleMoreArr = nil;
         
-        weak_self.is_maleShow = NO;
-        weak_self.is_femaleShow = NO;
+        weakself.is_maleShow = NO;
+        weakself.is_femaleShow = NO;
         
         NSMutableArray *maleArr = @[].mutableCopy;
         
@@ -115,15 +113,15 @@
         
         [femaleArr addObject:laout2];
         
-        weak_self.layouts = @[maleArr, femaleArr];
+        weakself.layouts = @[maleArr, femaleArr];
         
-        weak_self.maleMoreArr = maleMoreArr.copy;
+        weakself.maleMoreArr = maleMoreArr.copy;
         
-        weak_self.femaleMoreArr = femaleMoreArr.copy;
+        weakself.femaleMoreArr = femaleMoreArr.copy;
         
-        [weak_self.tableView.mj_header endRefreshing];
+        [weakself.tableView.mj_header endRefreshing];
         
-        [weak_self.tableView reloadData];
+        [weakself.tableView reloadData];
         
         [HUD hide];
         
@@ -194,7 +192,7 @@
         }
     } else {
         
-        @weakify(self);
+        xxWeakify(self)
         void (^pushVC)(BOOL) = ^(BOOL collapse) {
             if (collapse == false) {
                 BooksListMainController *vc = [BooksListMainController new];
@@ -204,13 +202,13 @@
                 vc.totalRank = layout.model.totalRank;
                 vc.booklist_type = bookslist_rank;
                 
-                [weak_self.navigationController pushViewController:vc animated:YES];
+                [weakself.navigationController pushViewController:vc animated:YES];
             } else {
                 BooksListController *vc = [BooksListController new];
                 vc.title = layout.model.title;
                 vc.id = layout.model._id;
                 vc.booklist_type = bookslist_rank;
-                [self.navigationController pushViewController:vc animated:YES];
+                [weakself.navigationController pushViewController:vc animated:YES];
             }
         };
         pushVC(layout.model.collapse);
@@ -268,7 +266,7 @@
     
     label.textColor = [UIColor colorWithRed:0.65 green:0.65 blue:0.65 alpha:1.00];
     
-    label.font = FONT_SIZE(12);
+    label.font = fontSize(12);
     
     if (section == 0) {
         label.text = @"男生";

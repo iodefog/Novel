@@ -32,12 +32,6 @@
     
     self.title = @"书籍详情";
     
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithTitle:@"返回"
-                                             style:UIBarButtonItemStylePlain
-                                             target:self
-                                             action:nil];
-    
     _bookDetailView = [BookDetailView new];
     
     _bookDetailView.hidden = YES;
@@ -48,7 +42,7 @@
     
     self.tableView.tableHeaderView = _bookDetailView;
     
-    self.view.backgroundColor = KWhiteColor;
+    self.view.backgroundColor = kwhiteColor;
 }
 
 //点击空白页面刷新
@@ -58,20 +52,22 @@
 
 - (void)onLoadDataByRequest {
     
-    @weakify(self);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [HUD showProgressCircleNoValue:nil inView:self.view];
+    });
     
-    [HUD showProgressCircleNoValue:nil inView:self.view];
+    xxWeakify(self)
     
     [httpUtil GET:NSStringFormat(@"%@/book/%@",SERVERCE_HOST,_id) parameters:nil success:^(id responseObject) {
         
         BookDetailModel *model = [BookDetailModel modelWithDictionary:responseObject];
         
-        weak_self.bookDetailView.shorIntro = weak_self.shorIntro;
+        weakself.bookDetailView.shorIntro = weakself.shorIntro;
         
-        weak_self.bookDetailView.model = model;
+        weakself.bookDetailView.model = model;
         
     } failure:^(NSError *error) {
-        [self showEmptyWithStr:[error localizedDescription]];
+        [weakself showEmptyWithStr:[error localizedDescription]];
     }];
     
 }

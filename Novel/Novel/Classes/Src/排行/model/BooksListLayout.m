@@ -48,8 +48,8 @@
     } else {
         
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:_model.title];
-        text.font = FONT_BOLD_SIZE(BooksListTitleFont);
-        text.color = kNormalColor;
+        text.font = fontBoldSize(BooksListTitleFont);
+        text.color = knormalColor;
         
         CGSize maxSize = CGSizeMake(kScreenWidth - kCellX*3 - kPicWidth_cell, kMaxTextHeight);
         
@@ -78,7 +78,7 @@
         }
         
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:authorAndCat];
-        text.font = FONT_SIZE(BooksListOtherFont);
+        text.font = fontSize(BooksListOtherFont);
         text.color = BooksListGray;
         
         CGSize maxSize = CGSizeMake(kScreenWidth - kCellX*3 - kPicWidth_cell, kMaxTextHeight);
@@ -101,7 +101,7 @@
         
         // 创建属性字符串
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:_model.shortIntro];
-        text.font = FONT_BOLD_SIZE(BooksListOtherFont);
+        text.font = fontBoldSize(BooksListOtherFont);
         text.color = BooksListGray;
         text.lineBreakMode = NSLineBreakByTruncatingTail;
         
@@ -134,7 +134,7 @@
         }
         
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:followerAndRetention];
-        text.font = FONT_SIZE(BooksListOtherFont);
+        text.font = fontSize(BooksListOtherFont);
         text.color = BooksListNormalColor;
         
         CGSize maxSize = CGSizeMake(kScreenWidth - kCellX*3 - kPicWidth_cell, kMaxTextHeight);

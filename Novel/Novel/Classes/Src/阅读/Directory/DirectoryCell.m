@@ -49,9 +49,9 @@ static NSString *ID = @"directoryID";
     
     _titleLabel.displaysAsynchronously = YES;
     
-    _titleLabel.font = FONT_SIZE(14);
+    _titleLabel.font = fontSize(14);
     
-    _titleLabel.textColor = kNormalColor;
+    _titleLabel.textColor = knormalColor;
     
     [self.contentView addSubview:_titleLabel];
     
@@ -64,7 +64,7 @@ static NSString *ID = @"directoryID";
     
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(_titleLabel.x_pro, self.height-0.5, _titleLabel.width, 0.5)];
     
-    lineView.backgroundColor = kLineColor;
+    lineView.backgroundColor = klineColor;
     
     [self.contentView addSubview:lineView];
 }

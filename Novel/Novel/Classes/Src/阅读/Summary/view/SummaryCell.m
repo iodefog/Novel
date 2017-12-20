@@ -45,7 +45,7 @@
     //mode_juhe
     
     _iconView = [[UIButton alloc] init];
-    _iconView.titleLabel.font = FONT_SIZE(14);
+    _iconView.titleLabel.font = fontSize(14);
     
     [self.contentView addSubview:_iconView];
     
@@ -101,7 +101,7 @@
     if (model.isSelect) {
         _selabel.hidden = NO;
         NSMutableAttributedString *selStr = [[NSMutableAttributedString alloc] initWithString:@"当前选择"];
-        selStr.font = FONT_SIZE(14);
+        selStr.font = fontSize(14);
         selStr.color = kgrayColor;
         
         YYTextContainer *selContainer = [YYTextContainer containerWithSize:CGSizeMake(100, HUGE)];
@@ -130,10 +130,10 @@
     NSString *title = NSStringFormat(@"%@%@",model.source ,time);
     NSMutableAttributedString *titleText = [[NSMutableAttributedString alloc] initWithString:title];
     
-    [titleText setFont:FONT_SIZE(14) range:NSMakeRange(0, model.source.length)];
-    [titleText setFont:FONT_SIZE(10) range:NSMakeRange(model.source.length, time.length)];
+    [titleText setFont:fontSize(14) range:NSMakeRange(0, model.source.length)];
+    [titleText setFont:fontSize(10) range:NSMakeRange(model.source.length, time.length)];
     
-    [titleText setColor:kBlackColor range:NSMakeRange(0, model.source.length)];
+    [titleText setColor:kblackColor range:NSMakeRange(0, model.source.length)];
     [titleText setColor:kgrayColor range:NSMakeRange(model.source.length, time.length)];
     
     titleText.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -148,7 +148,7 @@
     
     //chapterLabel;
     NSMutableAttributedString *chapterText = [[NSMutableAttributedString alloc] initWithString:model.lastChapter];
-    chapterText.font = FONT_SIZE(14);
+    chapterText.font = fontSize(14);
     chapterText.color = kgrayColor;
     chapterText.lineBreakMode = NSLineBreakByTruncatingTail;
     

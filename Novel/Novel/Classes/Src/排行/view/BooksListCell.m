@@ -51,7 +51,7 @@
     //underline
     _lineView = [UIView new];
     
-    _lineView.backgroundColor = kLineColor;
+    _lineView.backgroundColor = klineColor;
     
     [self addSubview:_lineView];
     

@@ -34,8 +34,6 @@ typedef NS_ENUM(int, kTextType) {
 
 //释放
 #define kDealloc(objc) objc = nil;
-//通知是否释放内存了
-static NSString *const notiDealloc    = @"notificationDealloc";
 
 /*************************
  序列化和反序列化

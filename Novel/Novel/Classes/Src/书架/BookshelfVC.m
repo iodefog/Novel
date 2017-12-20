@@ -28,9 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    @weakify(self);
+    xxWeakify(self)
     self.tableView.mj_header = [MJDIYHeader headerWithRefreshingBlock:^{
-        [weak_self updateWithChapter];
+        [weakself updateWithChapter];
     }];
     
     if (self.datas.count > 0) {
@@ -49,7 +49,7 @@
 - (void)setupFooter {
     
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 64)];
-    footerView.backgroundColor = KWhiteColor;
+    footerView.backgroundColor = kwhiteColor;
     
     self.tableView.tableFooterView = footerView;
     
@@ -57,7 +57,7 @@
     
     UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, footerView.height - footerH, kScreenWidth, footerH)];
     
-    footer.backgroundColor = kLineColor;
+    footer.backgroundColor = klineColor;
     
     [footerView addSubview:footer];
     
@@ -65,7 +65,7 @@
     UIView *addView = [[UIView alloc] initWithFrame:CGRectMake(20, (footerH - 30) * 0.5, 25, 25)];
     
     addView.layer.borderWidth = 1;
-    addView.layer.borderColor = kNormalColor.CGColor;
+    addView.layer.borderColor = knormalColor.CGColor;
     addView.layer.cornerRadius = 25/2;
     
     [footer addSubview:addView];
@@ -75,13 +75,13 @@
     
     UIView *rowLine = [[UIView alloc] initWithFrame:CGRectMake((addView.width - lineW) * 0.5 , (addView.height - space) * 0.5, lineW, space)];
     
-    rowLine.backgroundColor = kNormalColor;
+    rowLine.backgroundColor = knormalColor;
     
     [addView addSubview:rowLine];
     
     UIView *colLine = [[UIView alloc] initWithFrame:CGRectMake((addView.width - space) * 0.5, (addView.height - lineW) * 0.5, space, lineW)];
     
-    colLine.backgroundColor = kNormalColor;
+    colLine.backgroundColor = knormalColor;
     
     [addView addSubview:colLine];
     
@@ -106,10 +106,10 @@
 #pragma mark - 更新章节
 - (void)updateWithChapter {
     
-    @weakify(self);
+    xxWeakify(self)
     
     if (self.datas.count == 0) {
-        [weak_self.tableView.mj_header endRefreshing];
+        [weakself.tableView.mj_header endRefreshing];
         return;
     }
     
@@ -118,7 +118,7 @@
         NSArray *updates = [NSArray modelArrayWithClass:[BookShelfModel class] json:responseObject];
         
         [updates enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            BookShelfModel *m1 = weak_self.datas[idx];
+            BookShelfModel *m1 = weakself.datas[idx];
             BookShelfModel *m2 = updates[idx];
             
             if (stop) {
@@ -130,14 +130,14 @@
                     [SQLiteTool updateWithTableName:m1.id dict:@{@"lastChapter":m2.lastChapter, @"updated":m1.updated, @"status":@"1"}];
                 }
                 
-                [weak_self.tableView reloadData];
+                [weakself.tableView reloadData];
             }
         }];
         
-        [weak_self.tableView.mj_header endRefreshing];
+        [weakself.tableView.mj_header endRefreshing];
         
     } failure:^(NSError *error) {
-        [weak_self.tableView.mj_header endRefreshing];
+        [weakself.tableView.mj_header endRefreshing];
         [SVProgressHUD showErrorWithStatus:[error localizedDescription]];
     }];
     
@@ -156,7 +156,7 @@
     
     ShelfCell *cell = [ShelfCell cellWithTalbeView:tableView];
     
-    @weakify(self);
+    xxWeakify(self)
     cell.CellLongPress = ^(UILongPressGestureRecognizer *longPress) {
         
         switch (longPress.state) {
@@ -182,7 +182,7 @@
                         
                         [self datas];
                         
-                        [weak_self.tableView reloadData];
+                        [weakself.tableView reloadData];
                         NSLog(@"%@--删除成功",model.title);
                     } else {
                         [SVProgressHUD showErrorWithStatus:@"删除失败"];
@@ -246,7 +246,7 @@
     paragraph.alignment = NSTextAlignmentCenter;
     
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:16.0f],
-                                 NSForegroundColorAttributeName: kNormalColor,
+                                 NSForegroundColorAttributeName: knormalColor,
                                  NSParagraphStyleAttributeName: paragraph};
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
@@ -257,7 +257,7 @@
     UIImage *refreshImage = [UIImage imageNamed:@"blankRefresh"];
     
     NSMutableAttributedString *textTest = [[NSMutableAttributedString alloc] initWithString:@" 您还没有添加书籍，点击添加哦"];
-    textTest.font = FONT_SIZE(12);
+    textTest.font = fontSize(12);
     
     
     YYTextContainer *container = [YYTextContainer containerWithSize:CGSizeMake(100, 100)];
@@ -273,8 +273,8 @@
     NSAttributedString *strAtt = [NSAttributedString attributedStringWithAttachment:attachment];
     
     NSMutableAttributedString *strMatt = [[NSMutableAttributedString alloc] initWithString:@" 您还没有添加书籍，点击添加哦"];
-    strMatt.font = FONT_SIZE(12);
-    strMatt.color = kLightGrayColor;
+    strMatt.font = fontSize(12);
+    strMatt.color = klightGrayColor;
     
     [strMatt insertAttributedString:strAtt atIndex:0];
     

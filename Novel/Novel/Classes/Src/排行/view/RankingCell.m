@@ -44,8 +44,8 @@
     } else {
         
         NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:_model.title];
-        text.font = FONT_SIZE(RankTitleFont);
-        text.color = kBlackColor;
+        text.font = fontSize(RankTitleFont);
+        text.color = kblackColor;
         
         CGSize maxSize = CGSizeMake(kScreenWidth - kCellX*2 - RankCoverWidth - kSpaceX, HUGE);
         
@@ -92,7 +92,7 @@
     //underline
     _lineView = [UIView new];
     
-    _lineView.backgroundColor = kLineColor;
+    _lineView.backgroundColor = klineColor;
     
     [self addSubview:_lineView];
     

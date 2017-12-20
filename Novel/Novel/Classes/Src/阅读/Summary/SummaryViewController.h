@@ -6,7 +6,7 @@
 //  Copyright © 2017年 th. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseTableViewController.h"
 
 @interface SummaryViewController : BaseTableViewController
 

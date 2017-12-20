@@ -6,7 +6,7 @@
 //  Copyright © 2017年 th. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseTableViewController.h"
 
 typedef NS_ENUM(NSInteger, bookslist_Type) {
     bookslist_rank = 1999,

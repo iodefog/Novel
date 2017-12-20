@@ -32,8 +32,8 @@
 - (YYLabel *)contentLabel {
     if (!_contentLabel) {
         _contentLabel = [[YYLabel alloc] initWithFrame:kReadingFrame];
-//        _contentLabel.backgroundColor = kLineColor;
-        _contentLabel.font = FONT_SIZE(20);
+//        _contentLabel.backgroundColor = klineColor;
+        _contentLabel.font = fontSize(20);
         _contentLabel.numberOfLines = 0;
         _contentLabel.textAlignment = NSTextAlignmentCenter;
         [_contentLabel setTextVerticalAlignment:YYTextVerticalAlignmentTop];//居上对齐
@@ -45,8 +45,8 @@
 - (YYLabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[YYLabel alloc] initWithFrame:CGRectMake(kReadSpaceX, 0, kScreenWidth - kReadSpaceX*2, kReadSpaceY)];
-        _titleLabel.font = FONT_SIZE(13);
-        _titleLabel.textColor = kNormalColor;
+        _titleLabel.font = fontSize(13);
+        _titleLabel.textColor = knormalColor;
         _titleLabel.textAlignment = NSTextAlignmentLeft;
         [self.view addSubview:_titleLabel];
     }
@@ -57,8 +57,8 @@
     if (!_pageLabel) {
         CGFloat w = 100;
         _pageLabel = [[YYLabel alloc] initWithFrame:CGRectMake(kScreenWidth - kReadSpaceX - w, kScreenHeight - kReadSpaceY, w, kReadSpaceY)];
-        _pageLabel.font = FONT_SIZE(12);
-        _pageLabel.textColor = kNormalColor;
+        _pageLabel.font = fontSize(12);
+        _pageLabel.textColor = knormalColor;
         _pageLabel.textAlignment = NSTextAlignmentRight;
         
         [self.view addSubview:_pageLabel];
@@ -80,8 +80,8 @@
 - (YYLabel *)timeLabel {
     if (!_timeLabel) {
         _timeLabel = [[YYLabel alloc] initWithFrame:CGRectMake(45+kSpaceX, kScreenHeight - kReadSpaceY, 50, kReadSpaceY)];
-        _timeLabel.font = FONT_SIZE(12);
-        _timeLabel.textColor = kNormalColor;
+        _timeLabel.font = fontSize(12);
+        _timeLabel.textColor = knormalColor;
         _timeLabel.textAlignment = NSTextAlignmentLeft;
         
         [self.view addSubview:_timeLabel];
@@ -140,24 +140,24 @@
     if ([ReadingManager shareReadingManager].bgColor == 5) {
         
         NSMutableAttributedString *text = (NSMutableAttributedString *)self.contentLabel.attributedText;
-        text.color = KWhiteColor;
+        text.color = kwhiteColor;
         
         self.contentLabel.attributedText = text;
         
-        self.titleLabel.textColor = KWhiteColor;
-        self.timeLabel.textColor = KWhiteColor;
-        self.pageLabel.textColor = KWhiteColor;
+        self.titleLabel.textColor = kwhiteColor;
+        self.timeLabel.textColor = kwhiteColor;
+        self.pageLabel.textColor = kwhiteColor;
         
     } else {
         
         NSMutableAttributedString *text = (NSMutableAttributedString *)self.contentLabel.attributedText;
-        text.color = kBlackColor;
+        text.color = kblackColor;
         
         self.contentLabel.attributedText = text;
         
-        self.titleLabel.textColor = kNormalColor;
-        self.timeLabel.textColor = kNormalColor;
-        self.pageLabel.textColor = kNormalColor;
+        self.titleLabel.textColor = knormalColor;
+        self.timeLabel.textColor = knormalColor;
+        self.pageLabel.textColor = knormalColor;
     }
 }
 

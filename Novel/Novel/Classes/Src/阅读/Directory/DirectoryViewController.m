@@ -71,7 +71,7 @@
     
     self.tableView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
     
-    @weakify(self);
+    xxWeakify(self)
     
     self.tableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
     
@@ -86,7 +86,7 @@
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(-topH);
         make.left.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(weak_self.tableView.width, topH));
+        make.size.mas_equalTo(CGSizeMake(weakself.tableView.width, topH));
     }];
     
     _bottomView = [UIView new];
@@ -94,9 +94,9 @@
     [self.tableView addSubview:_bottomView];
     
     [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(weak_self.tableView.height-bottomH);
+        make.bottom.mas_equalTo(weakself.tableView.height-bottomH);
         make.left.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(weak_self.tableView.width, bottomH));
+        make.size.mas_equalTo(CGSizeMake(weakself.tableView.width, bottomH));
     }];
     
     // 将topView移到最顶层，防止被其他view挡住
@@ -106,14 +106,14 @@
     self.tableView.contentInset = UIEdgeInsetsMake(topH, 0, bottomH, 0);
     
     
-    CGFloat rightW = [@"到顶部" sizeForFont:FONT_SIZE(14) size:CGSizeMake(kScreenWidth, middleH) mode:NSLineBreakByWordWrapping].width+10;
+    CGFloat rightW = [@"到顶部" sizeForFont:fontSize(14) size:CGSizeMake(kScreenWidth, middleH) mode:NSLineBreakByWordWrapping].width+10;
     
     //到底/定部按钮
     _rightButton = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - kSpaceX - rightW, statusBarH, rightW, middleH)];
     
-    _rightButton.titleLabel.textColor = KWhiteColor;
+    _rightButton.titleLabel.textColor = kwhiteColor;
     
-    _rightButton.titleLabel.font = FONT_SIZE(14);
+    _rightButton.titleLabel.font = fontSize(14);
     
     [_topView addSubview:_rightButton];
     
@@ -126,8 +126,8 @@
     YYLabel *titleLabel = [[YYLabel alloc] initWithFrame:CGRectMake(titleLeftX , statusBarH, titleW, middleH)];
     titleLabel.numberOfLines = 1;
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.textColor = KWhiteColor;
-    titleLabel.font = FONT_BOLD_SIZE(16);
+    titleLabel.textColor = kwhiteColor;
+    titleLabel.font = fontBoldSize(16);
     titleLabel.text = self.manager.title;
     
     [_topView addSubview:titleLabel];
@@ -144,17 +144,16 @@
     [_bottomView addSubview:cancelButton];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    @weakify(self);
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    xxWeakify(self)
     CGFloat offset = self.tableView.contentOffset.y;
-    [weak_self.topView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [weakself.topView mas_updateConstraints:^(MASConstraintMaker *make) {
         // 此处如果有navigationBar的高度，应加上
         make.top.mas_equalTo(offset + 0);
     }];
-    [weak_self.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
+    [weakself.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
         // 此处如果有navigationBar的高度，应加上
-        make.bottom.mas_equalTo(weak_self.tableView.height+offset);
+        make.bottom.mas_equalTo(weakself.tableView.height+offset);
     }];
 //    [self.tableView layoutIfNeeded];
 }

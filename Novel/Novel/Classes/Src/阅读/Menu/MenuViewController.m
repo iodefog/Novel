@@ -57,9 +57,9 @@
     
     [sourceButton setTitle:@"换源" forState:UIControlStateNormal];
     
-    [sourceButton setTitleColor:KWhiteColor forState:UIControlStateNormal];
+    [sourceButton setTitleColor:kwhiteColor forState:UIControlStateNormal];
     
-    sourceButton.titleLabel.font = FONT_SIZE(16);
+    sourceButton.titleLabel.font = fontSize(16);
     
     
     [_topView addSubview:sourceButton];
@@ -84,8 +84,8 @@
     //标题
     _titleLabel = [[YYLabel alloc] initWithFrame:CGRectMake(sourceButton.maxX_pro+kCellX, statusBarH, kScreenWidth - (sourceButton.maxX_pro + kCellX) * 2, middleH)];
     
-    _titleLabel.font = FONT_SIZE(16);
-    _titleLabel.textColor = KWhiteColor;
+    _titleLabel.font = fontSize(16);
+    _titleLabel.textColor = kwhiteColor;
     _titleLabel.textAlignment = NSTextAlignmentCenter;
     
     [_topView addSubview:_titleLabel];
@@ -98,7 +98,7 @@
     
     _sourceLabel.textColor = kgrayColor;
     
-    _sourceLabel.font = FONT_SIZE(12);
+    _sourceLabel.font = fontSize(12);
     
     _sourceLabel.numberOfLines = 1;
     
@@ -231,14 +231,13 @@
     
     self.view.hidden = NO;
     
-    @weakify(self);
     [UIView animateWithDuration:duration animations:^{
         
         completion ();
         
-        weak_self.topView.origin = CGPointMake(0, 0);
+        self.topView.origin = CGPointMake(0, 0);
         
-        weak_self.bottomView.origin = CGPointMake(0, kScreenHeight - menuBottomH);
+        self.bottomView.origin = CGPointMake(0, kScreenHeight - menuBottomH);
         
     } completion:^(BOOL finished) {
 //        if (finished) {
@@ -249,19 +248,18 @@
 }
 - (void)hideMenuViewWithDuration:(CGFloat)duration completion:(void(^)())completion {
     
-    @weakify(self);
     [UIView animateWithDuration:duration animations:^{
         
         completion ();
         
-        weak_self.topView.origin = CGPointMake(0, -menuTopH);
+        self.topView.origin = CGPointMake(0, -menuTopH);
         
-        weak_self.bottomView.origin = CGPointMake(0, kScreenHeight);
+        self.bottomView.origin = CGPointMake(0, kScreenHeight);
         
     } completion:^(BOOL finished) {
         if (finished) {
             
-            weak_self.view.hidden = YES;
+            self.view.hidden = YES;
         }
     }];
 }

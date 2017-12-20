@@ -9,7 +9,7 @@
 #import "BooksListMainController.h"
 #import "BooksListModel.h"
 
-static CGFloat const maxTitleScale = 1.2;
+static CGFloat const maxTitleScale = 1.1;
 
 @interface BooksListMainController ()<UIScrollViewDelegate,UIGestureRecognizerDelegate> {
     CGFloat w;
@@ -72,7 +72,7 @@ static CGFloat const maxTitleScale = 1.2;
     //underline
     _underLine = [[UIView alloc] initWithFrame:CGRectMake(0, self.titleScrollView.height - 1, kScreenWidth / self.childViewControllers.count, 1)];
     
-    _underLine.backgroundColor = kLineColor;
+    _underLine.backgroundColor = klineColor;
     
     [self.titleScrollView addSubview:_underLine];
 }
@@ -87,7 +87,7 @@ static CGFloat const maxTitleScale = 1.2;
     
     UIScrollView *titleScrollView = [[UIScrollView alloc] initWithFrame:rect];
     
-    titleScrollView.backgroundColor = KWhiteColor;
+    titleScrollView.backgroundColor = kwhiteColor;
     
     [self.view addSubview:titleScrollView];
     
@@ -103,7 +103,7 @@ static CGFloat const maxTitleScale = 1.2;
     
     BaseScrollView *containerScrollView = [[BaseScrollView alloc] initWithFrame:rect];
     
-    containerScrollView.backgroundColor = KWhiteColor;
+    containerScrollView.backgroundColor = kwhiteColor;
     
     [self.view addSubview:containerScrollView];
     
@@ -156,9 +156,9 @@ static CGFloat const maxTitleScale = 1.2;
         
         [btn setTitle:vc.title forState:UIControlStateNormal];
         
-        btn.titleLabel.font = FONT_SIZE(14);
+        btn.titleLabel.font = fontSize(16);
         
-        [btn setTitleColor:kNormalColor forState:UIControlStateNormal];
+        [btn setTitleColor:knormalColor forState:UIControlStateNormal];
         
         [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchDown];
         
@@ -185,9 +185,9 @@ static CGFloat const maxTitleScale = 1.2;
     
     self.containerScrollView.contentOffset = CGPointMake(x, 0);
     
-    @weakify(self);
+    xxWeakify(self)
     [UIView animateWithDuration:0.5 animations:^{
-        weak_self.underLine.origin = CGPointMake(i * w, self.titleScrollView.height - 1);
+        weakself.underLine.origin = CGPointMake(i * w, self.titleScrollView.height - 1);
     }];
 }
 // 选中按钮
@@ -263,13 +263,14 @@ static CGFloat const maxTitleScale = 1.2;
     
     
     CGFloat transScale = maxTitleScale - 1;
+    
     leftButton.transform = CGAffineTransformMakeScale(scaleL * transScale + 1, scaleL * transScale + 1);
     
     rightButton.transform = CGAffineTransformMakeScale(scaleR * transScale + 1, scaleR * transScale + 1);
     
-    @weakify(self);
+    xxWeakify(self)
     [UIView animateWithDuration:0.5 animations:^{
-        weak_self.underLine.origin = CGPointMake(leftButton.tag * w, self.titleScrollView.height - 1);
+        weakself.underLine.origin = CGPointMake(leftButton.tag * w, self.titleScrollView.height - 1);
     }];
 }
 

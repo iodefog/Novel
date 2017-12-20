@@ -49,10 +49,10 @@
     self.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
     
     _topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 100)];
-    _topView.backgroundColor = KWhiteColor;
+    _topView.backgroundColor = kwhiteColor;
     
     YYLabel *everyLabel = [[YYLabel alloc] initWithFrame:CGRectMake(20, 0, 100, 40)];
-    everyLabel.font = FONT_SIZE(16);
+    everyLabel.font = fontSize(16);
     everyLabel.text = @"大家都在搜";
     
     [_topView addSubview:everyLabel];
@@ -62,7 +62,7 @@
     [replaceButton setImage:[UIImage imageNamed:@"search_refresh"] forState:UIControlStateNormal];
     [replaceButton setTitle:@"换一批" forState:UIControlStateNormal];
     [replaceButton setTitleColor:kgrayColor forState:UIControlStateNormal];
-    replaceButton.titleLabel.font = FONT_SIZE(14);
+    replaceButton.titleLabel.font = fontSize(14);
     
     replaceButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -replaceButton.titleLabel.width + 10);
     
@@ -78,10 +78,10 @@
     [_topView addSubview:_searchBar];
     
     
-    @weakify(self);
+    xxWeakify(self)
     _tagsView = [[MSSAutoresizeLabelFlow alloc] initWithFrame:CGRectMake(0, _searchBar.maxY_pro + 15, kScreenWidth, 50) titles:[self tagArray] selectedHandler:^(NSUInteger index, NSString *title) {
         
-        [weak_self saerchWithText:title];
+        [weakself saerchWithText:title];
         
     }];
     
@@ -122,9 +122,8 @@
 //开始编辑
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     
-    @weakify(self);
     [UIView animateWithDuration:0.5 animations:^{
-        [weak_self.searchBar setShowsCancelButton:YES];
+        [self.searchBar setShowsCancelButton:YES];
         for (UIView *view in [[_searchBar.subviews lastObject] subviews]) {
             if ([view isKindOfClass:[UIButton class]]) {
                 UIButton *cancelBtn = (UIButton *)view;
@@ -162,10 +161,9 @@
 //取消
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     
-    @weakify(self);
     [UIView animateWithDuration:0.5 animations:^{
-        [weak_self.searchBar setShowsCancelButton:NO];
-        [weak_self.searchBar endEditing:YES];
+        [self.searchBar setShowsCancelButton:NO];
+        [self.searchBar endEditing:YES];
 
     }];
 }

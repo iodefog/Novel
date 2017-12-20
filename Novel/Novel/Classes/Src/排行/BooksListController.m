@@ -30,13 +30,15 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     if (_booklist_type == bookslist_rank) {
-        @weakify(self);
+        xxWeakify(self)
         self.tableView.mj_header = [MJDIYHeader headerWithRefreshingBlock:^{
-            [weak_self onLoadDataByRequestWithFirst:NO];
+            [weakself onLoadDataByRequestWithFirst:NO];
         }];
     }
     
-    self.view.backgroundColor = KWhiteColor;
+    self.view.backgroundColor = kwhiteColor;
+    
+    [self onLoadDataByRequestWithFirst:YES];
 }
 
 //点击空白页面刷新
@@ -44,13 +46,9 @@
     [self onLoadDataByRequestWithFirst:YES];
 }
 
-
-- (void)onLoadDataByRequest {
-    [self onLoadDataByRequestWithFirst:YES];
-}
-
 - (void)onLoadDataByRequestWithFirst:(BOOL)first {
-    @weakify(self);
+    
+    xxWeakify(self)
     
     if (first) {
         [HUD showProgressCircleNoValue:nil inView:self.view];
@@ -65,7 +63,7 @@
                 
                 BooksListModel *model = [BooksListModel modelWithDictionary:responseObject[@"ranking"]];
                 
-                _layouts = nil;
+                weakself.layouts = nil;
                 
                 NSMutableArray *layouts = @[].mutableCopy;
                 
@@ -77,16 +75,16 @@
                     [layouts addObject:layout];
                 }
                 
-                weak_self.layouts = layouts;
+                weakself.layouts = layouts;
                 
-                [self.tableView.mj_header endRefreshing];
+                [weakself.tableView.mj_header endRefreshing];
                 
-                [weak_self.tableView reloadData];
+                [weakself.tableView reloadData];
                 
                 [HUD hide];
                 
             } failure:^(NSError *error) {
-                [self showEmptyWithStr:[error localizedDescription]];
+                [weakself showEmptyWithStr:[error localizedDescription]];
             }];
         }
             break;
@@ -110,14 +108,14 @@
                     [layouts addObject:layout];
                 }
                 
-                weak_self.layouts = layouts;
+                weakself.layouts = layouts;
                 
-                [weak_self.tableView reloadData];
+                [weakself.tableView reloadData];
                 
                 [HUD hide];
                 
             } failure:^(NSError *error) {
-                [self showEmptyWithStr:[error localizedDescription]];
+                [weakself showEmptyWithStr:[error localizedDescription]];
             }];
             
         }
@@ -140,14 +138,14 @@
                     [layouts addObject:layout];
                 }
                 
-                weak_self.layouts = layouts;
+                weakself.layouts = layouts;
                 
-                [weak_self.tableView reloadData];
+                [weakself.tableView reloadData];
                 
                 [HUD hide];
                 
             } failure:^(NSError *error) {
-                [self showEmptyWithStr:[error localizedDescription]];
+                [weakself showEmptyWithStr:[error localizedDescription]];
             }];
         }
             break;

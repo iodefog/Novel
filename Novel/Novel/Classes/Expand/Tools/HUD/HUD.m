@@ -65,8 +65,8 @@
         case HudProgressModeCircle:{ //环形
             
             //设置白色背景，
-            [HUD shareInstance].hud.bezelView.color = kWhiteColor;
-            [HUD shareInstance].hud.contentColor = kNormalColor;
+            [HUD shareInstance].hud.bezelView.color = kwhiteColor;
+            [HUD shareInstance].hud.contentColor = knormalColor;
             
             [[HUD shareInstance].hud setMargin:10];
             

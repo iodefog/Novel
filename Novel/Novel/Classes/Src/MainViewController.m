@@ -109,7 +109,7 @@ static CGFloat const maxTitleScale = 1.2;
     
     UIScrollView *titleScrollView = [[UIScrollView alloc] initWithFrame:rect];
     
-    titleScrollView.backgroundColor = kClearColor;
+    titleScrollView.backgroundColor = kclearColor;
     
     [self.view addSubview:titleScrollView];
     
@@ -161,9 +161,11 @@ static CGFloat const maxTitleScale = 1.2;
     CGFloat w = kScreenWidth / count;
     
     for (int i = 0; i < count; i++) {
+        
         UIViewController *vc = self.childViewControllers[i];
         
         x = i * w;
+        
         CGRect rect = CGRectMake(x, kNavigationHeight - kTitleH, w, kTitleH);
         
         UIButton *btn = [[UIButton alloc] initWithFrame:rect];
@@ -174,9 +176,9 @@ static CGFloat const maxTitleScale = 1.2;
         
         [btn setTitle:vc.title forState:UIControlStateNormal];
         
-        [btn setTitleColor:KWhiteColor forState:UIControlStateNormal];
+        [btn setTitleColor:kwhiteColor forState:UIControlStateNormal];
         
-        btn.titleLabel.font = FONT_SIZE(16);
+        btn.titleLabel.font = fontSize(17);
         
         [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchDown];
         
@@ -266,11 +268,14 @@ static CGFloat const maxTitleScale = 1.2;
     NSInteger leftIndex = offsetX / kScreenWidth;
     NSInteger rightIndex = leftIndex + 1;
     
-    //    NSLog(@"%zd,%zd",leftIndex,rightIndex);
+    if (offsetX <= 0) {
+        scrollView.bounces = (scrollView.contentOffset.y <= 0) ? NO : YES;
+    }
     
     UIButton *leftButton = self.buttons[leftIndex];
     
     UIButton *rightButton = nil;
+    
     if (rightIndex < self.buttons.count) {
         rightButton = self.buttons[rightIndex];
     }

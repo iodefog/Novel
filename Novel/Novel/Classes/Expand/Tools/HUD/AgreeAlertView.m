@@ -30,32 +30,32 @@
         
         
         _alertView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, AlertW, 100)];
-        _alertView.backgroundColor = kWhiteColor;
+        _alertView.backgroundColor = kwhiteColor;
         _alertView.layer.position = self.center;
         
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, AlertW, 40)];
-        titleLabel.font = FONT_SIZE(16);
-        titleLabel.textColor = kNormalColor;
+        titleLabel.font = fontSize(16);
+        titleLabel.textColor = knormalColor;
         titleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.text = title;
         
         [_alertView addSubview:titleLabel];
         
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, titleLabel.maxY_pro, AlertW, 1)];
-        lineView.backgroundColor = kLineColor;
+        lineView.backgroundColor = klineColor;
         [_alertView addSubview:lineView];
         
         YYTextView *textView = [[YYTextView alloc] initWithFrame:CGRectMake(5, lineView.maxY_pro + 8, AlertW - 16, 80)];
-        textView.font = FONT_SIZE(14);
+        textView.font = fontSize(14);
         textView.textColor = kgrayColor;
         [_alertView addSubview:textView];
         
         textView.text = @"商品交付时由第三方物流承运商仔细检查商品，商品完好交付给第三方物流商时后，格利食品网不对商品在运输过程中发生的商品遗失、损毁、延迟送达、误送、未送达或未能提供资料负任何责任。格利食品网不承担上述运输过程所产生的赔偿责任。";
         
         UIButton *cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, textView.maxY_pro + 8, AlertW/2, 40)];
-        [cancelBtn setTitleColor:kWhiteColor forState:0];
+        [cancelBtn setTitleColor:kwhiteColor forState:0];
         cancelBtn.backgroundColor = UIColorHex(#999999);
-        cancelBtn.titleLabel.font = FONT_SIZE(16);
+        cancelBtn.titleLabel.font = fontSize(16);
         [cancelBtn setTitle:cancelString forState:0];
         [_alertView addSubview:cancelBtn];
         
@@ -65,9 +65,9 @@
         
         
         UIButton *sureBtn = [[UIButton alloc] initWithFrame:CGRectMake(cancelBtn.maxX_pro, cancelBtn.y_pro, cancelBtn.width_pro, cancelBtn.height_pro)];
-        [sureBtn setTitleColor:kWhiteColor forState:0];
-        sureBtn.backgroundColor = KNavigationBarColor;
-        sureBtn.titleLabel.font = FONT_SIZE(16);
+        [sureBtn setTitleColor:kwhiteColor forState:0];
+        sureBtn.backgroundColor = knavigationBarColor;
+        sureBtn.titleLabel.font = fontSize(16);
         [sureBtn setTitle:sureString forState:0];
         [_alertView addSubview:sureBtn];
         

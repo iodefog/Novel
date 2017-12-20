@@ -28,8 +28,8 @@
 - (YYLabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[YYLabel alloc] init];
-        _titleLabel.font = FONT_SIZE(13);
-        _titleLabel.textColor = kBlackColor;
+        _titleLabel.font = fontSize(13);
+        _titleLabel.textColor = kblackColor;
         _titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _titleLabel;
