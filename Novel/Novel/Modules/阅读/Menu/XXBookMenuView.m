@@ -49,7 +49,7 @@
     _topView.backgroundColor = [UIColor colorWithRed:0.12 green:0.12 blue:0.12 alpha:1.00];
     [self addSubview:_topView];
     
-    UIButton *replaceBtn = [UIButton newButtonTitle:@"换源" font:16 normarlColor:kwhiteColor];
+    UIButton *replaceBtn = [UIButton newButtonTitle:@"换源" font:15 normarlColor:kwhiteColor];
     [_topView addSubview:replaceBtn];
     
     _titleLabel = [UILabel newLabel:@"" andTextColor:kwhiteColor andFontSize:16];

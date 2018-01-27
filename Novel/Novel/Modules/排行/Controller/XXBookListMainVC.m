@@ -23,8 +23,8 @@
     //关闭预加载
     self.preloadPolicy = WMPageControllerPreloadPolicyNever;
     
-    self.titleSizeNormal = xxAdaWidth(14);
-    self.titleSizeSelected = xxAdaWidth(16);
+    self.titleSizeNormal = 14;
+    self.titleSizeSelected = 16;
     self.titleColorNormal = knormalColor;
     self.titleColorSelected = knormalColor;
     self.menuItemWidth = self.view.width / 3;
@@ -33,7 +33,6 @@
     self.menuViewLayoutMode = WMMenuViewLayoutModeCenter;
     
     [self addBackItem];
-    self.navigationController.fd_fullscreenPopGestureRecognizer.enabled = YES;
 }
 
 - (NSInteger)numbersOfChildControllersInPageController:(WMPageController *)pageController {

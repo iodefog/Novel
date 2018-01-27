@@ -25,8 +25,8 @@
     self.preloadPolicy = WMPageControllerPreloadPolicyNever;
     self.showOnNavigationBar = YES;
     
-    self.titleSizeNormal = xxAdaWidth(16);
-    self.titleSizeSelected = xxAdaWidth(20);
+    self.titleSizeNormal = 16;
+    self.titleSizeSelected = 18;
     self.titleColorNormal = UIColorHex(#ffffff);
     self.titleColorSelected = UIColorHex(#ffffff);
     self.progressColor = UIColorHex(#ff4ba3);

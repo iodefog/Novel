@@ -88,9 +88,9 @@ static inline BOOL IsEmpty(id thing) {
 #define xxAdaHeight(x) ceilf((x) * xxHeightRatio)
 
 //字体适配(目前统一使用系统默认字体)
-#define fontSize(R) [UIFont systemFontOfSize:xxAdaWidth(R)]
+#define fontSize(R) [UIFont systemFontOfSize:R]
 
-#define fontBoldSize(R) [UIFont boldSystemFontOfSize:xxAdaWidth(R)]
+#define fontBoldSize(R) [UIFont boldSystemFontOfSize:R]
 
 #define klineHeight (1.0f / [UIScreen mainScreen].scale)
 

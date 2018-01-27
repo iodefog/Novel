@@ -95,13 +95,13 @@
     _afterBtn.titleLabel.font = fontSize(15);
     [_afterBtn setTitleColor:knormalColor forState:0];
     _afterBtn.layer.cornerRadius = xxAdaWidth(5);
-    _afterBtn.layer.borderWidth = xxAdaWidth(1);
+    _afterBtn.layer.borderWidth = klineHeight;
     _afterBtn.layer.borderColor = [UIColor colorWithRed:0.36 green:0.27 blue:0.34 alpha:1.00].CGColor;
     [self.contentView addSubview:_afterBtn];
     
     _readingBtn = [XXHighLightButton newButtonTitle:@"开始阅读" font:16 normarlColor:kwhiteColor];
     _readingBtn.layer.cornerRadius = xxAdaWidth(5);
-    _readingBtn.layer.borderWidth = xxAdaWidth(1);
+    _readingBtn.layer.borderWidth = klineHeight;
     _readingBtn.backgroundColor = [UIColor colorWithRed:0.36 green:0.27 blue:0.34 alpha:1.00];
     [self.contentView addSubview:_readingBtn];
     
@@ -130,10 +130,10 @@
     _bottomLine = [UIView newLine];
     [self.contentView addSubview:_bottomLine];
     
-    _interestLabel = [UILabel newLabel:@"你可能感兴趣" andTextColor:kblackColor andFontSize:16];
+    _interestLabel = [UILabel newLabel:@"你可能感兴趣" andTextColor:kblackColor andFontSize:14];
     [self.contentView addSubview:_interestLabel];
     
-    _moreBtn = [UIButton newButtonTitle:@"更多" font:15 normarlColor:kgrayColor];
+    _moreBtn = [UIButton newButtonTitle:@"更多" font:14 normarlColor:kgrayColor];
     [self.contentView addSubview:_moreBtn];
     
     _recommendView = [[XXRecommendView alloc] init];

@@ -38,7 +38,7 @@
     _coverNode.style.preferredSize = CGSizeMake(coverW, xxAdaWidth(65.f));
     [self addSubnode:_coverNode];
     
-    _titleNode = [ASTextNode newTextNodeTile:md.title font:16 textColor:knormalColor maxnumberLine:1 lineSpace:0];
+    _titleNode = [ASTextNode newTextNodeTile:md.title font:14 textColor:knormalColor maxnumberLine:1 lineSpace:0];
     [self addSubnode:_titleNode];
     
     NSString *author = @"";

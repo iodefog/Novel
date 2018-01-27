@@ -50,7 +50,7 @@
     _coverView = [[UIImageView alloc] init];
     [self.contentView addSubview:_coverView];
     
-    _titleLabel = [UILabel newLabel:@"" andTextColor:kblackColor andFontSize:16];
+    _titleLabel = [UILabel newLabel:@"" andTextColor:kblackColor andFontSize:15];
     [self.contentView addSubview:_titleLabel];
     
     _chapterLabel = [UILabel newLabel:@"" andTextColor:kgrayColor andFontSize:12];

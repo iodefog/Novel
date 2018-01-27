@@ -21,7 +21,7 @@ PODS:
   - FMDB/standard (2.7.2)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
-  - MJRefresh (3.1.15.3)
+  - MJRefresh (3.1.15.1)
   - PINCache (3.0.1-beta.6):
     - PINCache/Arc-exception-safe (= 3.0.1-beta.6)
     - PINCache/Core (= 3.0.1-beta.6)
@@ -80,7 +80,7 @@ SPEC CHECKSUMS:
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
   PINOperation: 7f042fa6df5b606deb4bd5997654cf7033d5be1d
   PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
@@ -94,6 +94,6 @@ SPEC CHECKSUMS:
   YTKNetwork: df8a7a5597bda1664a4efaa7ef871a818a887fe0
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 12b66fd8aa7011be860a5b2102078888eb0cf532
+PODFILE CHECKSUM: 0d333f084f2a89860b1de1dda0a9bf5c003782a9
 
 COCOAPODS: 1.3.1

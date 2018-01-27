@@ -64,13 +64,13 @@
     [self.view addSubview:_topView];
     
     UILabel *everyLabel = [[UILabel alloc] init];
-    everyLabel.font = fontSize(16);
+    everyLabel.font = fontSize(13);
     everyLabel.text = @"大家都在搜";
     [_topView addSubview:everyLabel];
     
-    UIButton *refreshButton = [UIButton newButtonTitle:@"换一批" font:14 normarlColor:kgrayColor];
+    UIButton *refreshButton = [UIButton newButtonTitle:@"换一批" font:13 normarlColor:kgrayColor];
     [refreshButton setImage:UIImageWithName(@"search_refresh") forState:0];
-    [refreshButton setImagePosition:kImagePosition_left spacing:xxAdaWidth(3)];
+    [refreshButton setImagePosition:kImagePosition_left spacing:3];
     [refreshButton addTarget:self action:@selector(configTag) forControlEvents:UIControlEventTouchUpInside];
     [_topView addSubview:refreshButton];
     

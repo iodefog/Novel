@@ -53,16 +53,16 @@
     _iconView.titleLabel.font = fontSize(14);
     [_container addSubview:_iconView];
     
-    _sourceLabel = [UILabel newLabel:@"" andTextColor:knormalColor andFontSize:15];
+    _sourceLabel = [UILabel newLabel:@"" andTextColor:knormalColor andFontSize:14];
     [_container addSubview:_sourceLabel];
     
     _timeLabel = [UILabel newLabel:@"" andTextColor:klightGrayColor andFontSize:12];
     [_container addSubview:_timeLabel];
     
-    _chapterLabel = [UILabel newLabel:@"" andTextColor:knormalColor andFontSize:14];
+    _chapterLabel = [UILabel newLabel:@"" andTextColor:knormalColor andFontSize:12];
     [_container addSubview:_chapterLabel];
     
-    _currentLabel = [UILabel newLabel:@"" andTextColor:kgrayColor andFontSize:14];
+    _currentLabel = [UILabel newLabel:@"" andTextColor:kgrayColor andFontSize:12];
     [_container addSubview:_currentLabel];
     
     _rightView = [[UIImageView alloc] initWithImage:UIImageWithName(@"cell_arrow_day")];

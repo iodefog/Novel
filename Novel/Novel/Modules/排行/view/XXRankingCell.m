@@ -38,7 +38,7 @@
     _iconView = [[UIImageView alloc] init];
     [self.contentView addSubview:_iconView];
     
-    _titleLabel = [UILabel newLabel:@"" andTextColor:knormalColor andFontSize:16];
+    _titleLabel = [UILabel newLabel:@"" andTextColor:knormalColor andFontSize:14];
     [self.contentView addSubview:_titleLabel];
     
     _bottomLine = [UIView newLine];

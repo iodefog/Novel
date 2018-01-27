@@ -41,7 +41,7 @@
     _preView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"directory_not_previewed"]];
     [self.contentView addSubview:_preView];
 
-    _titleLabel = [UILabel newLabel:@"" andTextColor:knormalColor andFontSize:14];
+    _titleLabel = [UILabel newLabel:@"" andTextColor:knormalColor andFontSize:12];
     [self.contentView addSubview:_titleLabel];
     
     _arrowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_arrow_day"]];

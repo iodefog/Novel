@@ -41,7 +41,6 @@
 		6969715C200616E50009E5CD /* refresh_loading@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 696970F9200616E40009E5CD /* refresh_loading@2x.gif */; };
 		6969715D200616E50009E5CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 696970FF200616E40009E5CD /* Assets.xcassets */; };
 		6969715E200616E50009E5CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69697100200616E40009E5CD /* LaunchScreen.storyboard */; };
-		6969715F200616E50009E5CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69697102200616E40009E5CD /* Main.storyboard */; };
 		69697160200616E50009E5CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69697104200616E40009E5CD /* main.m */; };
 		69697161200616E50009E5CD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 69697105200616E40009E5CD /* Info.plist */; };
 		69697164200616F40009E5CD /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 69697163200616F40009E5CD /* BaseModel.m */; };
@@ -204,7 +203,6 @@
 		696970FD200616E40009E5CD /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		696970FF200616E40009E5CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		69697101200616E40009E5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		69697103200616E40009E5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69697104200616E40009E5CD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		69697105200616E40009E5CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69697162200616F40009E5CD /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
@@ -879,7 +877,6 @@
 			children = (
 				696970FF200616E40009E5CD /* Assets.xcassets */,
 				69697100200616E40009E5CD /* LaunchScreen.storyboard */,
-				69697102200616E40009E5CD /* Main.storyboard */,
 				69697104200616E40009E5CD /* main.m */,
 				69697105200616E40009E5CD /* Info.plist */,
 			);
@@ -1136,7 +1133,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				69697161200616E50009E5CD /* Info.plist in Resources */,
-				6969715F200616E50009E5CD /* Main.storyboard in Resources */,
 				6969715C200616E50009E5CD /* refresh_loading@2x.gif in Resources */,
 				6969715B200616E50009E5CD /* *.zhuishushenqi.com.cer in Resources */,
 				6969715E200616E50009E5CD /* LaunchScreen.storyboard in Resources */,
@@ -1384,14 +1380,6 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		69697102200616E40009E5CD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				69697103200616E40009E5CD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1488,7 +1476,6 @@
 			baseConfigurationReference = 93495C68F67526F94500555E /* Pods-Novel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YGVLR7CG44;
@@ -1519,7 +1506,6 @@
 			baseConfigurationReference = F59E4CA960CFE1F9593FBB57 /* Pods-Novel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
