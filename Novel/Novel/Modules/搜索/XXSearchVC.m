@@ -75,6 +75,19 @@
     [_topView addSubview:refreshButton];
     
     _searchBar = [[UISearchBar alloc] init];
+    _searchBar.backgroundImage = [UIImage new];
+    
+    UITextField *searchField = [self.searchBar valueForKey:@"searchField"];
+    if (searchField) {
+        [searchField setBackgroundColor:[UIColor whiteColor]];
+        searchField.font = [UIFont systemFontOfSize:14];
+        searchField.layer.cornerRadius = 10;
+        searchField.layer.borderColor = [UIColor grayColor].CGColor;
+        searchField.layer.borderWidth = 0.5;
+        searchField.layer.masksToBounds = YES;
+    }
+  
+    
     _searchBar.delegate = self;
     _searchBar.placeholder = @"请输入书名或作者名";
     _searchBar.keyboardType = UIKeyboardTypeDefault;
@@ -107,7 +120,7 @@
     [_searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(everyLabel.mas_bottom).offset(kCellX);
         make.left.right.equalTo(_topView);
-        make.height.mas_equalTo(xxAdaWidth(40));
+        make.height.mas_equalTo(xxAdaWidth(50));
     }];
     
     [_tagsView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -48,7 +48,7 @@ PODS:
     - Texture/Core
   - TPKeyboardAvoiding (1.3.2)
   - TTGTagCollectionView (1.8.2)
-  - UITableView+FDTemplateLayoutCell (1.6)
+  - "UITableView+FDTemplateLayoutCell (1.6)"
   - WMPageController (2.5.2)
   - YTKNetwork (2.0.4):
     - AFNetworking (~> 3.0)
@@ -68,10 +68,32 @@ DEPENDENCIES:
   - Texture (= 2.6)
   - TPKeyboardAvoiding
   - TTGTagCollectionView
-  - UITableView+FDTemplateLayoutCell
+  - "UITableView+FDTemplateLayoutCell"
   - WMPageController
   - YTKNetwork
   - YYKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - DZNEmptyDataSet
+    - FDFullscreenPopGesture
+    - FMDB
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - PINCache
+    - PINOperation
+    - PINRemoteImage
+    - ReactiveObjC
+    - SVProgressHUD
+    - Texture
+    - TPKeyboardAvoiding
+    - TTGTagCollectionView
+    - "UITableView+FDTemplateLayoutCell"
+    - WMPageController
+    - YTKNetwork
+    - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -89,11 +111,11 @@ SPEC CHECKSUMS:
   Texture: 7249074582daf75e524e59df5428b66b8e8db0e4
   TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
   TTGTagCollectionView: 20cf236b538ea9a17d1f0538968148c8d304414a
-  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
   YTKNetwork: df8a7a5597bda1664a4efaa7ef871a818a887fe0
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 0d333f084f2a89860b1de1dda0a9bf5c003782a9
+PODFILE CHECKSUM: 12b66fd8aa7011be860a5b2102078888eb0cf532
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3

@@ -75,7 +75,7 @@
         make.height.mas_equalTo(kTopHeight);
     }];
     
-    [replaceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(_topView.mas_top).offset(kAppDelegate.statusBarHeight);
         make.left.mas_equalTo(_topView.mas_left).offset(kLeftX);
         make.size.mas_equalTo(CGSizeMake(NavigationBar_HEIGHT, NavigationBar_HEIGHT));
@@ -86,14 +86,14 @@
     //    [replaceBtn setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(replaceBtn);
-        make.left.mas_equalTo(replaceBtn.mas_right).offset(kLeftX);
-        make.right.mas_equalTo(closeBtn.mas_left).offset(-kLeftX);
+        make.top.equalTo(closeBtn);
+        make.left.mas_equalTo(closeBtn.mas_right).offset(kLeftX);
+        make.right.mas_equalTo(replaceBtn.mas_left).offset(-kLeftX);
         make.height.mas_equalTo(NavigationBar_HEIGHT);
     }];
     
-    [closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(replaceBtn);
+    [replaceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(closeBtn);
         make.right.mas_equalTo(_topView.mas_right).offset(-kLeftX);
         make.size.mas_equalTo(CGSizeMake(NavigationBar_HEIGHT, NavigationBar_HEIGHT));
     }];
