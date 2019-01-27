@@ -26,6 +26,21 @@
     [self setupEstimatedRowHeight:xxAdaWidth(65) registerCell:[XXBookShelfCell class]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadSelf:) name:@"reloadBookShelf" object:nil];
+
+   NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:@"HLRecordReadHistory"];
+    NSString *bookId = dict[@"bookId"];
+    NSString *summaryId = dict[@"summaryId"];
+    NSString *title = dict[@"title"];
+    if (bookId.length > 0 && summaryId.length > 0 && title.length > 0) {
+        
+        XXBookReadingVC *vc = [[XXBookReadingVC alloc] initWithBookId:bookId bookTitle:title summaryId:summaryId];
+
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];;
+        
+        [self.navigationController presentViewController:nav animated:YES completion:^{
+            vc.presentComplete = YES;
+        }];
+    }
 }
 
 #pragma mark - 接收通知，刷新界面

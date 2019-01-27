@@ -73,6 +73,12 @@
     
     if (manager.isSave) {
         [SQLiteTool updateWithTableName: manager.bookId dict:@{@"chapter": @(manager.chapter), @"page": @(manager.page), @"status": @"0"}];
+        NSDictionary *dict = @{@"bookId":manager.bookId?:@"",
+                               @"summaryId":manager.summaryId?:@"",
+                               @"title":manager.title
+                               };
+        [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"HLRecordReadHistory"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     NSLog(@"----退出程序");
 }

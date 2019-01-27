@@ -24,6 +24,7 @@
 #define SpaceHeight ScreenHeight / 3
 
 #import "KPageViewController.h"
+#import "XXBookContentVC.h"
 
 @interface KPageViewController ()
 
@@ -87,7 +88,8 @@
     // 添加手势
     self.pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(touchPan:)];
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchTap:)];
-    self.tap.numberOfTapsRequired = 2;
+    UILongPressGestureRecognizer * recognizer = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressEvent:)];
+    [self.view addGestureRecognizer:recognizer];
     [self.view addGestureRecognizer:self.pan];
     [self.view addGestureRecognizer:self.tap];
     
@@ -108,6 +110,22 @@
     self.pan.enabled = gestureRecognizerEnabled;
     
     self.tap.enabled = gestureRecognizerEnabled;
+}
+
+- (BOOL)canBecomeFirstResponder{
+    return true;
+}
+
+- (void)copy:(id)sender{
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    XXBookContentVC *contentVC = (id)self.currentController;
+    BookChapterModel *bookModel = contentVC.bookModel;
+    NSAttributedString *attributedString = [bookModel getStringWithpage:contentVC.page];
+    [pasteboard setString:attributedString.string];
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender{
+    return action == @selector(copy:);
 }
 
 
@@ -227,6 +245,15 @@
     
     // 手势结束
     [self GestureSuccess:YES animated:self.openAnimate];
+}
+
+- (void)longPressEvent:(UILongPressGestureRecognizer *)longPress {
+    if (longPress.state == UIGestureRecognizerStateBegan) {
+        [self becomeFirstResponder];//一定要写
+        UIMenuController * menuController = [UIMenuController sharedMenuController];
+        [menuController setTargetRect:self.view.bounds inView:self.view];
+        [menuController setMenuVisible:YES animated:YES];
+    }
 }
 
 /**
