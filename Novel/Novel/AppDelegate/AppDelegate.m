@@ -46,6 +46,10 @@
         
     }];
     
+    ReadingManager *manager = [ReadingManager shareReadingManager];
+    manager.isSave = YES;
+
+    
     return YES;
 }
 
@@ -67,9 +71,9 @@
     
     ReadingManager *manager = [ReadingManager shareReadingManager];
     
-//    if (manager.isSave) {
+    if (manager.isSave) {
         [SQLiteTool updateWithTableName: manager.bookId dict:@{@"chapter": @(manager.chapter), @"page": @(manager.page), @"status": @"0"}];
-//    }
+    }
     NSLog(@"----退出程序");
 }
 
