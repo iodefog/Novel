@@ -89,9 +89,9 @@
     _updateLabel = [UILabel newLabel:@"" andTextColor:kgrayColor andFontSize:12];
     [_introView addSubview:_updateLabel];
     
-//    _afterBtn = [XXHighLightButton newButtonTitle:@"+ 追更新" font:15 normarlColor:knormalColor];
+//    _afterBtn = [XXHighLightButton newButtonTitle:@"加入书架" font:15 normarlColor:knormalColor];
     _afterBtn = [[XXHighLightButton alloc] init];
-    [_afterBtn setTitle:@"+ 追更新" forState:0];
+    [_afterBtn setTitle:@"加入书架" forState:0];
     _afterBtn.titleLabel.font = fontSize(15);
     [_afterBtn setTitleColor:knormalColor forState:0];
     _afterBtn.layer.cornerRadius = xxAdaWidth(5);
@@ -397,7 +397,7 @@
         //存在，则删除
         [SQLiteTool deleteTableName:self.model._id indatabasePath:kShelfPath];
         
-        [self.afterBtn setTitle:@"+ 追更新" forState:UIControlStateNormal];
+        [self.afterBtn setTitle:@"加入书架" forState:UIControlStateNormal];
         [self.readingBtn setTitle:@"开始阅读" forState:UIControlStateNormal];
         
     } else {

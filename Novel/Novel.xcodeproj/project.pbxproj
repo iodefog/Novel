@@ -1467,7 +1467,7 @@
 					"$(PROJECT_DIR)/Novel/Classes/Vender/SDKFiles/Alipay",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = "$(inherited)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Novel/Define/PrefixHeader.pch";
 				INFOPLIST_FILE = "Novel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1499,7 +1499,7 @@
 					"$(PROJECT_DIR)/Novel/Classes/Vender/SDKFiles/Alipay",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = "$(inherited)";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Novel/Define/PrefixHeader.pch";
 				INFOPLIST_FILE = "Novel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

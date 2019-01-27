@@ -5,6 +5,7 @@
 ## Build generated
 build/
 DerivedData/
+Novel/Pods
 
 ## Various settings
 *.pbxuser
