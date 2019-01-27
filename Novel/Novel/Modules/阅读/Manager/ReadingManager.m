@@ -67,7 +67,7 @@
     self.chapters = nil;
     self.title = nil;
     self.summaryId = nil;
-    self.isSave = NO;
+//    self.isSave = NO;
 }
 
 - (void)requestSummaryCompletion:(void(^)())completion failure:(void(^)(NSString *error))failure {

@@ -11,7 +11,7 @@
 
 @interface XXBookContentVC ()
 
-@property (nonatomic, strong) YYLabel *contentLabel;
+@property (nonatomic, strong) YYTextView *contentLabel;
 
 @property (nonatomic, strong) UILabel *titleLabel;
 
@@ -75,7 +75,7 @@
     if (kReadingManager.bgColor == 5) {
         
         NSMutableAttributedString *text = (NSMutableAttributedString *)self.contentLabel.attributedText;
-        text.color = kwhiteColor;
+        [self.contentLabel setTextColor:kwhiteColor];
         
         self.contentLabel.attributedText = text;
         
@@ -86,7 +86,8 @@
     } else {
         
         NSMutableAttributedString *text = (NSMutableAttributedString *)self.contentLabel.attributedText;
-        text.color = kblackColor;
+        [self.contentLabel setTextColor:kblackColor];
+//        text.color = kblackColor;
         
         self.contentLabel.attributedText = text;
         
@@ -134,10 +135,11 @@
     return _titleLabel;
 }
 
-- (YYLabel *)contentLabel {
+- (YYTextView *)contentLabel {
     if (!_contentLabel) {
-        _contentLabel = [[YYLabel alloc] init];
-        _contentLabel.numberOfLines = 0;
+        _contentLabel = [[YYTextView alloc] init];
+        _contentLabel.editable = NO;
+//        _contentLabel.numberOfLines = 0;
         _contentLabel.textAlignment = NSTextAlignmentCenter;
         [_contentLabel setTextVerticalAlignment:YYTextVerticalAlignmentTop];//居上对齐
         [self.view addSubview:_contentLabel];

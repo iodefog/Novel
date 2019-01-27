@@ -87,6 +87,7 @@
     // 添加手势
     self.pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(touchPan:)];
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchTap:)];
+    self.tap.numberOfTapsRequired = 2;
     [self.view addGestureRecognizer:self.pan];
     [self.view addGestureRecognizer:self.tap];
     
