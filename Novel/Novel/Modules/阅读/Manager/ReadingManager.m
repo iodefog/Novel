@@ -129,7 +129,7 @@
     NSString *linkString = model.link;
     
     XXBookContentApi *api = [[XXBookContentApi alloc] initWithParameter:nil url:URL_bookContent(linkString)];
-    
+    api.ignoreCache = NO;
     [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         
         model.body = [model adjustParagraphFormat:request.responseObject[@"chapter"][@"body"]];
